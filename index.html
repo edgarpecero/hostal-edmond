@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hostal Edmond — Viaja. Descansa. Conecta.</title>
+  <title data-i18n="page.title">Hostal Edmond — Viaja. Descansa. Conecta.</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,6 +59,24 @@
       transition: background .2s, transform .15s;
     }
     .nav-cta:hover { background: var(--terra-dk); transform: scale(1.04); }
+
+    /* ── LANGUAGE SWITCHER ── */
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .lang-switch {
+      display: flex; gap: .2rem;
+      background: rgba(192,92,42,.08);
+      border-radius: 2rem; padding: .2rem;
+    }
+    .lang-btn {
+      background: transparent; border: none;
+      font-family: 'Nunito', sans-serif;
+      font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+      color: var(--muted); cursor: pointer;
+      padding: .35rem .65rem; border-radius: 2rem;
+      transition: background .2s, color .2s;
+    }
+    .lang-btn:hover { color: var(--terra); }
+    .lang-btn.active { background: var(--terra); color: #fff; }
 
     /* ── HERO ── */
     #hero {
@@ -330,6 +348,8 @@
       .areas-grid { grid-template-columns: 1fr; }
       .area-card.tall { height: 320px; grid-row: auto; }
       .contact-box { padding: 2.5rem 1.5rem; }
+      .nav-right { gap: .5rem; }
+      .lang-btn { padding: .3rem .5rem; font-size: .68rem; }
     }
   </style>
 </head>
@@ -339,12 +359,19 @@
 <nav id="navbar">
   <a href="#hero" class="nav-logo">Hostal <span>Edmond</span></a>
   <ul class="nav-links">
-    <li><a href="#habitaciones">Habitaciones</a></li>
-    <li><a href="#amenidades">Amenidades</a></li>
-    <li><a href="#areas">Áreas</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#habitaciones" data-i18n="nav.rooms">Habitaciones</a></li>
+    <li><a href="#amenidades" data-i18n="nav.amenities">Amenidades</a></li>
+    <li><a href="#areas" data-i18n="nav.areas">Áreas</a></li>
+    <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
   </ul>
-  <a href="#contacto" class="nav-cta">Reservar</a>
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="es">ES</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <a href="#contacto" class="nav-cta" data-i18n="nav.book">Reservar</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -352,42 +379,42 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">✦ Tu hogar lejos de casa</div>
+    <div class="hero-tag" data-i18n="hero.tag">✦ Tu hogar lejos de casa</div>
     <h1 class="hero-title">Hostal <em>Edmond</em></h1>
-    <p class="hero-sub">Camas cómodas, gente increíble y todo lo que necesitas para explorar sin preocupaciones.</p>
+    <p class="hero-sub" data-i18n="hero.sub">Camas cómodas, gente increíble y todo lo que necesitas para explorar sin preocupaciones.</p>
     <div class="hero-btns">
-      <a href="#habitaciones" class="btn-primary">Ver habitaciones</a>
-      <a href="#contacto" class="btn-outline">Contáctanos</a>
+      <a href="#habitaciones" class="btn-primary" data-i18n="hero.btn.rooms">Ver habitaciones</a>
+      <a href="#contacto" class="btn-outline" data-i18n="hero.btn.contact">Contáctanos</a>
     </div>
   </div>
-  <div class="hero-scroll">Explorar</div>
+  <div class="hero-scroll" data-i18n="hero.scroll">Explorar</div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
     <div class="about-img-wrap reveal">
-      <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=900&q=80" alt="Interior hostal" />
-      <div class="about-badge">🛏️ Desde MXN $250/noche</div>
+      <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=900&q=80" alt="Interior hostal" data-i18n-alt="about.img.alt" />
+      <div class="about-badge" data-i18n="about.badge">🛏️ Desde MXN $250/noche</div>
     </div>
     <div class="reveal" style="animation-delay:.15s">
-      <span class="section-label">Sobre nosotros</span>
-      <h2 class="section-title">Un lugar para <em>descansar</em> y conectar</h2>
+      <span class="section-label" data-i18n="about.label">Sobre nosotros</span>
+      <h2 class="section-title" data-i18n="about.title">Un lugar para <em>descansar</em> y conectar</h2>
       <div class="divider"></div>
-      <p class="section-sub">Hostal Edmond es el punto de encuentro perfecto para mochileros y viajeros independientes. Ofrecemos un ambiente acogedor, seguro y sin pretensiones — porque viajar debería ser accesible para todos.</p>
-      <p class="section-sub" style="margin-top:1rem">Nos enorgullece brindar lo esencial con la mayor comodidad posible: camas limpias, cocina equipada y espacios comunes donde surgen las mejores historias.</p>
+      <p class="section-sub" data-i18n="about.p1">Hostal Edmond es el punto de encuentro perfecto para mochileros y viajeros independientes. Ofrecemos un ambiente acogedor, seguro y sin pretensiones — porque viajar debería ser accesible para todos.</p>
+      <p class="section-sub" style="margin-top:1rem" data-i18n="about.p2">Nos enorgullece brindar lo esencial con la mayor comodidad posible: camas limpias, cocina equipada y espacios comunes donde surgen las mejores historias.</p>
       <div class="about-stats">
         <div class="stat-item">
           <span class="stat-num">24</span>
-          <span class="stat-lbl">Camas</span>
+          <span class="stat-lbl" data-i18n="about.stat.beds">Camas</span>
         </div>
         <div class="stat-item">
           <span class="stat-num">4</span>
-          <span class="stat-lbl">Dormitorios</span>
+          <span class="stat-lbl" data-i18n="about.stat.dorms">Dormitorios</span>
         </div>
         <div class="stat-item">
           <span class="stat-num">100%</span>
-          <span class="stat-lbl">Viajeros felices</span>
+          <span class="stat-lbl" data-i18n="about.stat.happy">Viajeros felices</span>
         </div>
       </div>
     </div>
@@ -397,58 +424,58 @@
 <!-- HABITACIONES -->
 <section id="habitaciones">
   <div class="centered">
-    <span class="section-label">Habitaciones</span>
-    <h2 class="section-title">Duerme bien, <em>viaja mejor</em></h2>
+    <span class="section-label" data-i18n="rooms.label">Habitaciones</span>
+    <h2 class="section-title" data-i18n="rooms.title">Duerme bien, <em>viaja mejor</em></h2>
     <div class="divider"></div>
-    <p class="section-sub">Dormitorios mixtos y exclusivos con literas cómodas, casilleros personales y ventilación en cada cama.</p>
+    <p class="section-sub" data-i18n="rooms.sub">Dormitorios mixtos y exclusivos con literas cómodas, casilleros personales y ventilación en cada cama.</p>
   </div>
   <div class="rooms-grid">
 
     <div class="room-card reveal">
       <div class="room-img">
-        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=700&q=80" alt="Dormitorio mixto 8 camas" />
-        <span class="room-tag">Más popular</span>
+        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=700&q=80" alt="Dormitorio mixto 8 camas" data-i18n-alt="room1.img.alt" />
+        <span class="room-tag" data-i18n="room1.tag">Más popular</span>
       </div>
       <div class="room-body">
-        <p class="room-name">Dormitorio Mixto — 8 camas</p>
-        <p class="room-desc">Perfecto para mochileros. Literas robustas, casillero individual con candado y buena vibra garantizada.</p>
+        <p class="room-name" data-i18n="room1.name">Dormitorio Mixto — 8 camas</p>
+        <p class="room-desc" data-i18n="room1.desc">Perfecto para mochileros. Literas robustas, casillero individual con candado y buena vibra garantizada.</p>
         <div class="room-features">
-          <span class="feat-pill">🔒 Casillero</span>
-          <span class="feat-pill">💡 Luz individual</span>
-          <span class="feat-pill">🔌 Enchufe propio</span>
-          <span class="feat-pill">🪟 Ventilación</span>
+          <span class="feat-pill" data-i18n="feat.locker">🔒 Casillero</span>
+          <span class="feat-pill" data-i18n="feat.light">💡 Luz individual</span>
+          <span class="feat-pill" data-i18n="feat.outlet">🔌 Enchufe propio</span>
+          <span class="feat-pill" data-i18n="feat.vent">🪟 Ventilación</span>
         </div>
       </div>
     </div>
 
     <div class="room-card reveal" style="transition-delay:.1s">
       <div class="room-img">
-        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=700&q=80" alt="Dormitorio femenino" />
-        <span class="room-tag">Solo mujeres</span>
+        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=700&q=80" alt="Dormitorio femenino" data-i18n-alt="room2.img.alt" />
+        <span class="room-tag" data-i18n="room2.tag">Solo mujeres</span>
       </div>
       <div class="room-body">
-        <p class="room-name">Dormitorio Femenino — 6 camas</p>
-        <p class="room-desc">Espacio privado exclusivo para viajeras. Ambiente tranquilo con baño compartido propio del dorm.</p>
+        <p class="room-name" data-i18n="room2.name">Dormitorio Femenino — 6 camas</p>
+        <p class="room-desc" data-i18n="room2.desc">Espacio privado exclusivo para viajeras. Ambiente tranquilo con baño compartido propio del dorm.</p>
         <div class="room-features">
-          <span class="feat-pill">🔒 Casillero</span>
-          <span class="feat-pill">🚿 Baño privado dorm</span>
-          <span class="feat-pill">🌸 Solo mujeres</span>
+          <span class="feat-pill" data-i18n="feat.locker">🔒 Casillero</span>
+          <span class="feat-pill" data-i18n="feat.bath">🚿 Baño privado dorm</span>
+          <span class="feat-pill" data-i18n="feat.women">🌸 Solo mujeres</span>
         </div>
       </div>
     </div>
 
     <div class="room-card reveal" style="transition-delay:.2s">
       <div class="room-img">
-        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Dormitorio pequeño" />
-        <span class="room-tag">Más tranquilo</span>
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Dormitorio pequeño" data-i18n-alt="room3.img.alt" />
+        <span class="room-tag" data-i18n="room3.tag">Más tranquilo</span>
       </div>
       <div class="room-body">
-        <p class="room-name">Dormitorio Pequeño — 4 camas</p>
-        <p class="room-desc">Menos gente, más privacidad. Ideal si buscas descansar sin tanto movimiento pero sin pagar cuarto privado.</p>
+        <p class="room-name" data-i18n="room3.name">Dormitorio Pequeño — 4 camas</p>
+        <p class="room-desc" data-i18n="room3.desc">Menos gente, más privacidad. Ideal si buscas descansar sin tanto movimiento pero sin pagar cuarto privado.</p>
         <div class="room-features">
-          <span class="feat-pill">🔒 Casillero</span>
-          <span class="feat-pill">🤫 Ambiente íntimo</span>
-          <span class="feat-pill">🔌 Enchufe propio</span>
+          <span class="feat-pill" data-i18n="feat.locker">🔒 Casillero</span>
+          <span class="feat-pill" data-i18n="feat.intimate">🤫 Ambiente íntimo</span>
+          <span class="feat-pill" data-i18n="feat.outlet">🔌 Enchufe propio</span>
         </div>
       </div>
     </div>
@@ -459,51 +486,51 @@
 <!-- AMENIDADES -->
 <section id="amenidades">
   <div class="centered reveal">
-    <span class="section-label">Lo que incluimos</span>
-    <h2 class="section-title" style="color:#fff">Amenidades para <em style="color:var(--gold)">viajeros reales</em></h2>
+    <span class="section-label" data-i18n="amen.label">Lo que incluimos</span>
+    <h2 class="section-title" style="color:#fff" data-i18n="amen.title">Amenidades para <em style="color:var(--gold)">viajeros reales</em></h2>
     <div class="divider" style="background:var(--gold)"></div>
-    <p class="section-sub">Sin lujos innecesarios. Todo lo que realmente importa cuando estás de camino.</p>
+    <p class="section-sub" data-i18n="amen.sub">Sin lujos innecesarios. Todo lo que realmente importa cuando estás de camino.</p>
   </div>
   <div class="amenities-grid">
-    <div class="amenity-card reveal"><span class="amenity-icon">🛜</span><span class="amenity-name">Wi-Fi gratuito</span></div>
-    <div class="amenity-card reveal"><span class="amenity-icon">🚿</span><span class="amenity-name">Baños limpios</span></div>
-    <div class="amenity-card reveal"><span class="amenity-icon">🍳</span><span class="amenity-name">Cocina equipada</span></div>
-    <div class="amenity-card reveal"><span class="amenity-icon">🔒</span><span class="amenity-name">Casilleros seguros</span></div>
-    <div class="amenity-card reveal"><span class="amenity-icon">🧺</span><span class="amenity-name">Servicio de lavandería</span></div>
-    <div class="amenity-card reveal"><span class="amenity-icon">🗺️</span><span class="amenity-name">Info turística local</span></div>
-    <div class="amenity-card reveal"><span class="amenity-icon">🏡</span><span class="amenity-name">Áreas comunes</span></div>
-    <div class="amenity-card reveal"><span class="amenity-icon">🌙</span><span class="amenity-name">Recepción flexible</span></div>
+    <div class="amenity-card reveal"><span class="amenity-icon">🛜</span><span class="amenity-name" data-i18n="amen.wifi">Wi-Fi gratuito</span></div>
+    <div class="amenity-card reveal"><span class="amenity-icon">🚿</span><span class="amenity-name" data-i18n="amen.bath">Baños limpios</span></div>
+    <div class="amenity-card reveal"><span class="amenity-icon">🍳</span><span class="amenity-name" data-i18n="amen.kitchen">Cocina equipada</span></div>
+    <div class="amenity-card reveal"><span class="amenity-icon">🔒</span><span class="amenity-name" data-i18n="amen.locker">Casilleros seguros</span></div>
+    <div class="amenity-card reveal"><span class="amenity-icon">🧺</span><span class="amenity-name" data-i18n="amen.laundry">Servicio de lavandería</span></div>
+    <div class="amenity-card reveal"><span class="amenity-icon">🗺️</span><span class="amenity-name" data-i18n="amen.info">Info turística local</span></div>
+    <div class="amenity-card reveal"><span class="amenity-icon">🏡</span><span class="amenity-name" data-i18n="amen.common">Áreas comunes</span></div>
+    <div class="amenity-card reveal"><span class="amenity-icon">🌙</span><span class="amenity-name" data-i18n="amen.reception">Recepción flexible</span></div>
   </div>
 </section>
 
 <!-- ÁREAS -->
 <section id="areas">
   <div class="centered reveal">
-    <span class="section-label">Nuestros espacios</span>
-    <h2 class="section-title">Más que un lugar para <em>dormir</em></h2>
+    <span class="section-label" data-i18n="areas.label">Nuestros espacios</span>
+    <h2 class="section-title" data-i18n="areas.title">Más que un lugar para <em>dormir</em></h2>
     <div class="divider"></div>
-    <p class="section-sub">Los mejores momentos del viaje pasan aquí: entre buenas pláticas, café recién hecho y planes espontáneos.</p>
+    <p class="section-sub" data-i18n="areas.sub">Los mejores momentos del viaje pasan aquí: entre buenas pláticas, café recién hecho y planes espontáneos.</p>
   </div>
   <div class="areas-grid" style="margin-top:3rem">
     <div class="area-card tall reveal">
-      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Cocina compartida" />
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Cocina compartida" data-i18n-alt="area1.img.alt" />
       <div class="area-info">
-        <span class="area-name">Cocina Compartida</span>
-        <p class="area-desc">Refrigerador, estufa, utensilios y todo para cocinar tu propia comida.</p>
+        <span class="area-name" data-i18n="area1.name">Cocina Compartida</span>
+        <p class="area-desc" data-i18n="area1.desc">Refrigerador, estufa, utensilios y todo para cocinar tu propia comida.</p>
       </div>
     </div>
     <div class="area-card reveal" style="transition-delay:.1s">
-      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="Sala común" />
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="Sala común" data-i18n-alt="area2.img.alt" />
       <div class="area-info">
-        <span class="area-name">Sala de Estar</span>
-        <p class="area-desc">Sofás, juegos de mesa y el mejor lugar para conocer viajeros.</p>
+        <span class="area-name" data-i18n="area2.name">Sala de Estar</span>
+        <p class="area-desc" data-i18n="area2.desc">Sofás, juegos de mesa y el mejor lugar para conocer viajeros.</p>
       </div>
     </div>
     <div class="area-card reveal" style="transition-delay:.2s">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Patio exterior" />
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Patio exterior" data-i18n-alt="area3.img.alt" />
       <div class="area-info">
-        <span class="area-name">Patio / Área al Aire Libre</span>
-        <p class="area-desc">Disfruta el aire libre, relájate y comparte con los demás huéspedes.</p>
+        <span class="area-name" data-i18n="area3.name">Patio / Área al Aire Libre</span>
+        <p class="area-desc" data-i18n="area3.desc">Disfruta el aire libre, relájate y comparte con los demás huéspedes.</p>
       </div>
     </div>
   </div>
@@ -515,30 +542,30 @@
     <div class="contact-icon">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </div>
-    <h2 class="section-title">¿Tienes preguntas?<br><em>Escríbenos</em></h2>
-    <p>Nuestro equipo está listo para ayudarte con reservaciones, disponibilidad, precios o cualquier duda. ¡Responderemos a la brevedad!</p>
+    <h2 class="section-title" data-i18n="contact.title">¿Tienes preguntas?<br><em>Escríbenos</em></h2>
+    <p data-i18n="contact.p">Nuestro equipo está listo para ayudarte con reservaciones, disponibilidad, precios o cualquier duda. ¡Responderemos a la brevedad!</p>
     <a href="https://wa.me/524420000000?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20el%20Hostal%20Edmond%20%F0%9F%8F%A1"
        class="wa-btn" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Chatear en WhatsApp
+      <span data-i18n="contact.wa">Chatear en WhatsApp</span>
     </a>
-    <p class="contact-note">📍 Número de ejemplo — recuerda actualizarlo con el tuyo real</p>
+    <p class="contact-note" data-i18n="contact.note">📍 Número de ejemplo — recuerda actualizarlo con el tuyo real</p>
     <div class="contact-info">
       <div class="info-item">
-        <div class="info-lbl">Check-in</div>
+        <div class="info-lbl" data-i18n="contact.checkin">Check-in</div>
         <div class="info-val">2:00 PM</div>
       </div>
       <div class="info-item">
-        <div class="info-lbl">Check-out</div>
+        <div class="info-lbl" data-i18n="contact.checkout">Check-out</div>
         <div class="info-val">11:00 AM</div>
       </div>
       <div class="info-item">
-        <div class="info-lbl">Precio desde</div>
-        <div class="info-val">$250 MXN/noche</div>
+        <div class="info-lbl" data-i18n="contact.priceFrom">Precio desde</div>
+        <div class="info-val" data-i18n="contact.priceVal">$250 MXN/noche</div>
       </div>
       <div class="info-item">
-        <div class="info-lbl">Horario atención</div>
-        <div class="info-val">8am – 10pm</div>
+        <div class="info-lbl" data-i18n="contact.hours">Horario atención</div>
+        <div class="info-val" data-i18n="contact.hoursVal">8am – 10pm</div>
       </div>
     </div>
   </div>
@@ -546,8 +573,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>Hostal Edmond</strong> &nbsp;·&nbsp; Hecho con ❤️ para viajeros &nbsp;·&nbsp; © 2025</p>
-  <p style="margin-top:.4rem; font-size:.75rem">Todas las imágenes son ilustrativas.</p>
+  <p><strong>Hostal Edmond</strong> &nbsp;·&nbsp; <span data-i18n="footer.tagline">Hecho con ❤️ para viajeros</span> &nbsp;·&nbsp; © 2025</p>
+  <p style="margin-top:.4rem; font-size:.75rem" data-i18n="footer.images">Todas las imágenes son ilustrativas.</p>
 </footer>
 
 <script>
@@ -566,6 +593,313 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── I18N ── */
+  const I18N = {
+    es: {
+      'page.title': 'Hostal Edmond — Viaja. Descansa. Conecta.',
+      'nav.rooms': 'Habitaciones',
+      'nav.amenities': 'Amenidades',
+      'nav.areas': 'Áreas',
+      'nav.contact': 'Contacto',
+      'nav.book': 'Reservar',
+
+      'hero.tag': '✦ Tu hogar lejos de casa',
+      'hero.sub': 'Camas cómodas, gente increíble y todo lo que necesitas para explorar sin preocupaciones.',
+      'hero.btn.rooms': 'Ver habitaciones',
+      'hero.btn.contact': 'Contáctanos',
+      'hero.scroll': 'Explorar',
+
+      'about.label': 'Sobre nosotros',
+      'about.title': 'Un lugar para <em>descansar</em> y conectar',
+      'about.p1': 'Hostal Edmond es el punto de encuentro perfecto para mochileros y viajeros independientes. Ofrecemos un ambiente acogedor, seguro y sin pretensiones — porque viajar debería ser accesible para todos.',
+      'about.p2': 'Nos enorgullece brindar lo esencial con la mayor comodidad posible: camas limpias, cocina equipada y espacios comunes donde surgen las mejores historias.',
+      'about.badge': '🛏️ Desde MXN $250/noche',
+      'about.stat.beds': 'Camas',
+      'about.stat.dorms': 'Dormitorios',
+      'about.stat.happy': 'Viajeros felices',
+      'about.img.alt': 'Interior del hostal',
+
+      'rooms.label': 'Habitaciones',
+      'rooms.title': 'Duerme bien, <em>viaja mejor</em>',
+      'rooms.sub': 'Dormitorios mixtos y exclusivos con literas cómodas, casilleros personales y ventilación en cada cama.',
+
+      'room1.tag': 'Más popular',
+      'room1.name': 'Dormitorio Mixto — 8 camas',
+      'room1.desc': 'Perfecto para mochileros. Literas robustas, casillero individual con candado y buena vibra garantizada.',
+      'room1.img.alt': 'Dormitorio mixto de 8 camas',
+      'room2.tag': 'Solo mujeres',
+      'room2.name': 'Dormitorio Femenino — 6 camas',
+      'room2.desc': 'Espacio privado exclusivo para viajeras. Ambiente tranquilo con baño compartido propio del dorm.',
+      'room2.img.alt': 'Dormitorio femenino',
+      'room3.tag': 'Más tranquilo',
+      'room3.name': 'Dormitorio Pequeño — 4 camas',
+      'room3.desc': 'Menos gente, más privacidad. Ideal si buscas descansar sin tanto movimiento pero sin pagar cuarto privado.',
+      'room3.img.alt': 'Dormitorio pequeño',
+
+      'feat.locker': '🔒 Casillero',
+      'feat.light': '💡 Luz individual',
+      'feat.outlet': '🔌 Enchufe propio',
+      'feat.vent': '🪟 Ventilación',
+      'feat.bath': '🚿 Baño privado dorm',
+      'feat.women': '🌸 Solo mujeres',
+      'feat.intimate': '🤫 Ambiente íntimo',
+
+      'amen.label': 'Lo que incluimos',
+      'amen.title': 'Amenidades para <em style="color:var(--gold)">viajeros reales</em>',
+      'amen.sub': 'Sin lujos innecesarios. Todo lo que realmente importa cuando estás de camino.',
+      'amen.wifi': 'Wi-Fi gratuito',
+      'amen.bath': 'Baños limpios',
+      'amen.kitchen': 'Cocina equipada',
+      'amen.locker': 'Casilleros seguros',
+      'amen.laundry': 'Servicio de lavandería',
+      'amen.info': 'Info turística local',
+      'amen.common': 'Áreas comunes',
+      'amen.reception': 'Recepción flexible',
+
+      'areas.label': 'Nuestros espacios',
+      'areas.title': 'Más que un lugar para <em>dormir</em>',
+      'areas.sub': 'Los mejores momentos del viaje pasan aquí: entre buenas pláticas, café recién hecho y planes espontáneos.',
+      'area1.name': 'Cocina Compartida',
+      'area1.desc': 'Refrigerador, estufa, utensilios y todo para cocinar tu propia comida.',
+      'area1.img.alt': 'Cocina compartida',
+      'area2.name': 'Sala de Estar',
+      'area2.desc': 'Sofás, juegos de mesa y el mejor lugar para conocer viajeros.',
+      'area2.img.alt': 'Sala común',
+      'area3.name': 'Patio / Área al Aire Libre',
+      'area3.desc': 'Disfruta el aire libre, relájate y comparte con los demás huéspedes.',
+      'area3.img.alt': 'Patio exterior',
+
+      'contact.title': '¿Tienes preguntas?<br><em>Escríbenos</em>',
+      'contact.p': 'Nuestro equipo está listo para ayudarte con reservaciones, disponibilidad, precios o cualquier duda. ¡Responderemos a la brevedad!',
+      'contact.wa': 'Chatear en WhatsApp',
+      'contact.note': '📍 Número de ejemplo — recuerda actualizarlo con el tuyo real',
+      'contact.checkin': 'Check-in',
+      'contact.checkout': 'Check-out',
+      'contact.priceFrom': 'Precio desde',
+      'contact.priceVal': '$250 MXN/noche',
+      'contact.hours': 'Horario atención',
+      'contact.hoursVal': '8am – 10pm',
+
+      'footer.tagline': 'Hecho con ❤️ para viajeros',
+      'footer.images': 'Todas las imágenes son ilustrativas.'
+    },
+    en: {
+      'page.title': 'Hostal Edmond — Travel. Rest. Connect.',
+      'nav.rooms': 'Rooms',
+      'nav.amenities': 'Amenities',
+      'nav.areas': 'Spaces',
+      'nav.contact': 'Contact',
+      'nav.book': 'Book',
+
+      'hero.tag': '✦ Your home away from home',
+      'hero.sub': 'Comfy beds, amazing people and everything you need to explore worry-free.',
+      'hero.btn.rooms': 'See rooms',
+      'hero.btn.contact': 'Contact us',
+      'hero.scroll': 'Explore',
+
+      'about.label': 'About us',
+      'about.title': 'A place to <em>rest</em> and connect',
+      'about.p1': 'Hostal Edmond is the perfect meeting point for backpackers and independent travelers. We offer a welcoming, safe and unpretentious vibe — because travel should be accessible to everyone.',
+      'about.p2': 'We take pride in providing the essentials with as much comfort as possible: clean beds, a fully equipped kitchen and common spaces where the best stories begin.',
+      'about.badge': '🛏️ From MXN $250/night',
+      'about.stat.beds': 'Beds',
+      'about.stat.dorms': 'Dorms',
+      'about.stat.happy': 'Happy travelers',
+      'about.img.alt': 'Hostel interior',
+
+      'rooms.label': 'Rooms',
+      'rooms.title': 'Sleep well, <em>travel better</em>',
+      'rooms.sub': 'Mixed and exclusive dorms with comfy bunks, personal lockers and ventilation at every bed.',
+
+      'room1.tag': 'Most popular',
+      'room1.name': 'Mixed Dorm — 8 beds',
+      'room1.desc': 'Perfect for backpackers. Sturdy bunks, individual lockable storage and good vibes guaranteed.',
+      'room1.img.alt': 'Mixed 8-bed dorm',
+      'room2.tag': 'Women only',
+      'room2.name': 'Female Dorm — 6 beds',
+      'room2.desc': 'Private space for female travelers only. Quiet vibe with bathroom shared only within the dorm.',
+      'room2.img.alt': 'Female dorm',
+      'room3.tag': 'Quieter',
+      'room3.name': 'Small Dorm — 4 beds',
+      'room3.desc': 'Fewer people, more privacy. Great if you want to rest without much movement and without paying for a private room.',
+      'room3.img.alt': 'Small dorm',
+
+      'feat.locker': '🔒 Locker',
+      'feat.light': '💡 Reading light',
+      'feat.outlet': '🔌 Personal outlet',
+      'feat.vent': '🪟 Ventilation',
+      'feat.bath': '🚿 Dorm bathroom',
+      'feat.women': '🌸 Women only',
+      'feat.intimate': '🤫 Cozy vibe',
+
+      'amen.label': "What's included",
+      'amen.title': 'Amenities for <em style="color:var(--gold)">real travelers</em>',
+      'amen.sub': "No unnecessary luxuries. Just everything that really matters on the road.",
+      'amen.wifi': 'Free Wi-Fi',
+      'amen.bath': 'Clean bathrooms',
+      'amen.kitchen': 'Equipped kitchen',
+      'amen.locker': 'Secure lockers',
+      'amen.laundry': 'Laundry service',
+      'amen.info': 'Local tourist info',
+      'amen.common': 'Common areas',
+      'amen.reception': 'Flexible reception',
+
+      'areas.label': 'Our spaces',
+      'areas.title': 'More than a place to <em>sleep</em>',
+      'areas.sub': 'The best moments of the trip happen here: great chats, fresh coffee and spontaneous plans.',
+      'area1.name': 'Shared Kitchen',
+      'area1.desc': 'Fridge, stove, utensils and everything to cook your own meals.',
+      'area1.img.alt': 'Shared kitchen',
+      'area2.name': 'Living Room',
+      'area2.desc': 'Couches, board games and the best place to meet other travelers.',
+      'area2.img.alt': 'Common living room',
+      'area3.name': 'Patio / Outdoor Area',
+      'area3.desc': 'Enjoy the open air, relax and hang out with other guests.',
+      'area3.img.alt': 'Outdoor patio',
+
+      'contact.title': 'Got questions?<br><em>Write to us</em>',
+      'contact.p': "Our team is ready to help with reservations, availability, pricing or anything else. We'll get back to you shortly!",
+      'contact.wa': 'Chat on WhatsApp',
+      'contact.note': '📍 Example number — remember to replace it with the real one',
+      'contact.checkin': 'Check-in',
+      'contact.checkout': 'Check-out',
+      'contact.priceFrom': 'From',
+      'contact.priceVal': '$250 MXN/night',
+      'contact.hours': 'Office hours',
+      'contact.hoursVal': '8am – 10pm',
+
+      'footer.tagline': 'Made with ❤️ for travelers',
+      'footer.images': 'All images are illustrative.'
+    },
+    fr: {
+      'page.title': 'Hostal Edmond — Voyagez. Reposez-vous. Connectez-vous.',
+      'nav.rooms': 'Chambres',
+      'nav.amenities': 'Équipements',
+      'nav.areas': 'Espaces',
+      'nav.contact': 'Contact',
+      'nav.book': 'Réserver',
+
+      'hero.tag': '✦ Votre maison loin de chez vous',
+      'hero.sub': "Lits confortables, gens formidables et tout ce qu'il vous faut pour explorer sans souci.",
+      'hero.btn.rooms': 'Voir les chambres',
+      'hero.btn.contact': 'Nous contacter',
+      'hero.scroll': 'Explorer',
+
+      'about.label': 'À propos',
+      'about.title': 'Un lieu pour <em>se reposer</em> et créer des liens',
+      'about.p1': "Hostal Edmond est le point de rencontre idéal pour les routards et voyageurs indépendants. Nous offrons une ambiance chaleureuse, sûre et sans prétention — parce que voyager devrait être accessible à tous.",
+      'about.p2': "Nous sommes fiers d'offrir l'essentiel avec un maximum de confort : lits propres, cuisine équipée et espaces communs où naissent les meilleures histoires.",
+      'about.badge': '🛏️ Dès 250 MXN/nuit',
+      'about.stat.beds': 'Lits',
+      'about.stat.dorms': 'Dortoirs',
+      'about.stat.happy': 'Voyageurs heureux',
+      'about.img.alt': "Intérieur de l'auberge",
+
+      'rooms.label': 'Chambres',
+      'rooms.title': 'Bien dormir, <em>mieux voyager</em>',
+      'rooms.sub': "Dortoirs mixtes et exclusifs avec lits superposés confortables, casiers personnels et ventilation à chaque lit.",
+
+      'room1.tag': 'Le plus populaire',
+      'room1.name': 'Dortoir Mixte — 8 lits',
+      'room1.desc': "Parfait pour les routards. Lits superposés robustes, casier individuel avec cadenas et bonne ambiance garantie.",
+      'room1.img.alt': 'Dortoir mixte 8 lits',
+      'room2.tag': 'Femmes uniquement',
+      'room2.name': 'Dortoir Féminin — 6 lits',
+      'room2.desc': "Espace privé réservé aux voyageuses. Ambiance calme avec salle de bain partagée propre au dortoir.",
+      'room2.img.alt': 'Dortoir féminin',
+      'room3.tag': 'Plus calme',
+      'room3.name': 'Petit Dortoir — 4 lits',
+      'room3.desc': "Moins de monde, plus d'intimité. Idéal pour se reposer sans trop d'agitation, sans payer une chambre privée.",
+      'room3.img.alt': 'Petit dortoir',
+
+      'feat.locker': '🔒 Casier',
+      'feat.light': '💡 Liseuse',
+      'feat.outlet': '🔌 Prise personnelle',
+      'feat.vent': '🪟 Ventilation',
+      'feat.bath': '🚿 Salle de bain dortoir',
+      'feat.women': '🌸 Femmes uniquement',
+      'feat.intimate': '🤫 Ambiance intime',
+
+      'amen.label': 'Ce qui est inclus',
+      'amen.title': 'Équipements pour <em style="color:var(--gold)">vrais voyageurs</em>',
+      'amen.sub': "Pas de luxe inutile. Juste tout ce qui compte vraiment en voyage.",
+      'amen.wifi': 'Wi-Fi gratuit',
+      'amen.bath': 'Salles de bain propres',
+      'amen.kitchen': 'Cuisine équipée',
+      'amen.locker': 'Casiers sécurisés',
+      'amen.laundry': 'Service de blanchisserie',
+      'amen.info': 'Infos touristiques locales',
+      'amen.common': 'Espaces communs',
+      'amen.reception': 'Réception flexible',
+
+      'areas.label': 'Nos espaces',
+      'areas.title': "Plus qu'un endroit où <em>dormir</em>",
+      'areas.sub': "Les meilleurs moments du voyage se passent ici : bonnes discussions, café fraîchement préparé et plans spontanés.",
+      'area1.name': 'Cuisine Partagée',
+      'area1.desc': 'Réfrigérateur, cuisinière, ustensiles et tout pour cuisiner vos propres repas.',
+      'area1.img.alt': 'Cuisine partagée',
+      'area2.name': 'Salon',
+      'area2.desc': 'Canapés, jeux de société et le meilleur endroit pour rencontrer des voyageurs.',
+      'area2.img.alt': 'Salon commun',
+      'area3.name': 'Patio / Espace Extérieur',
+      'area3.desc': 'Profitez du grand air, détendez-vous et partagez avec les autres hôtes.',
+      'area3.img.alt': 'Patio extérieur',
+
+      'contact.title': 'Des questions ?<br><em>Écrivez-nous</em>',
+      'contact.p': "Notre équipe est prête à vous aider pour les réservations, la disponibilité, les tarifs ou toute autre question. Nous vous répondrons rapidement !",
+      'contact.wa': 'Discuter sur WhatsApp',
+      'contact.note': "📍 Numéro d'exemple — pensez à le remplacer par le vrai",
+      'contact.checkin': 'Arrivée',
+      'contact.checkout': 'Départ',
+      'contact.priceFrom': 'Dès',
+      'contact.priceVal': '250 MXN/nuit',
+      'contact.hours': "Horaires d'accueil",
+      'contact.hoursVal': '8h – 22h',
+
+      'footer.tagline': 'Fait avec ❤️ pour les voyageurs',
+      'footer.images': 'Toutes les images sont illustratives.'
+    }
+  };
+
+  const LANG_KEY = 'hostal_edmond_lang';
+  const SUPPORTED = ['es', 'en', 'fr'];
+
+  function applyLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = 'es';
+    const dict = I18N[lang];
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = dict[el.dataset.i18n];
+      if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+      const v = dict[el.dataset.i18nAlt];
+      if (v != null) el.alt = v;
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+      b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  }
+
+  function initLang() {
+    let saved = null;
+    try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+    const browser = (navigator.language || 'es').slice(0, 2).toLowerCase();
+    const initial = saved || (SUPPORTED.includes(browser) ? browser : 'es');
+    applyLang(initial);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+
+  initLang();
 </script>
 </body>
 </html>
