@@ -1,54 +1,89 @@
 CLAUDE.md — Hostal Edmond
-Qué es esto
-Landing estática de una sola página para "Hostal Edmond", un hostal que va
-empezando en Cancún, Quintana Roo, México. Sitio de presencia / branding.
-Las reservas se manejan por WhatsApp y por listings externos (Booking,
-Hostelworld, Airbnb). No hay motor de reservas propio.
+What this is
+Single-page static landing for "Hostal Edmond", a hostel just getting started
+in Cancún, Quintana Roo, Mexico. Presence / branding site.
+Bookings are handled via WhatsApp and external listings (Booking,
+Hostelworld, Airbnb). No own booking engine.
 Stack
 
-HTML / CSS / JavaScript puro. Sin frameworks, sin build step.
-Fuentes: Google Fonts (Playfair Display, Nunito).
-Deploy: Cloudflare Pages como sitio estático.
-Dominio: hostaledmond.com (registrado en Namecheap, DNS en Cloudflare).
+Plain HTML / CSS / JavaScript. No frameworks, no build step.
+Fonts: Google Fonts (Playfair Display, Nunito).
+Hosting: Cloudflare Workers serving static assets (NOT Pages).
+Cloudflare merged Pages into Workers; the "Connect to Git" flow
+creates a Worker with static assets. Works the same for a static site.
+Deploy via wrangler (npx wrangler deploy) connected to the GitHub repo.
+Domain: hostaledmond.com (registered at Namecheap, DNS in Cloudflare).
 
-Archivo principal
+Main file
 
-index.html contiene todo: estructura, estilos (en <style>) y scripts.
-Secciones: navbar, hero, about, habitaciones, amenidades, areas, contacto, footer.
-Paleta de colores definida en :root (variables CSS).
+index.html contains everything: structure, styles (in <style>) and scripts.
+Sections: navbar, hero, about, habitaciones, amenidades, areas, contacto, footer.
+Color palette defined in :root (CSS variables).
 
-Reglas de trabajo
+Working rules
 
-NO borrar código ni comentarios existentes.
-NO usar números de línea para referirte al código; indica la sección o el
-selector CSS / id.
-Si no estás seguro de algo, dilo explícitamente ("guessing").
-Hacer solo lo que se pide, nada extra. Sin soluciones "cute" no solicitadas.
-Respuestas directas, sin adjetivos de relleno.
-No tocar el diseño visual salvo que la tarea lo requiera.
+DO NOT delete existing code or comments.
+DO NOT use line numbers to reference code; indicate the section or the
+CSS selector / id.
+If unsure about something, say so explicitly ("guessing").
+Do only what is asked, nothing extra. No unsolicited "cute" solutions.
+Direct answers, no filler adjectives.
+Do not touch the visual design unless the task requires it.
 
-Datos del negocio (completar con datos reales)
+Business data (fill in with real data)
 
-Nombre: Hostal Edmond
-Ubicación: Cancún, Quintana Roo, México
-WhatsApp: [PENDIENTE — formato https://wa.me/52XXXXXXXXXX]
-Email: [PENDIENTE]
-Instagram / Facebook: [PENDIENTE]
-Dirección exacta: [PENDIENTE]
-Tipos de habitación y precios: [PENDIENTE]
-Links a Booking / Hostelworld / Airbnb: [PENDIENTE]
+Name: Hostal Edmond
+Location: Cancún, Quintana Roo, Mexico
+WhatsApp: [PENDING — format https://wa.me/52XXXXXXXXXX]
+Email: [PENDING]
+Instagram / Facebook: [PENDING]
+Exact address: [PENDING]
+Room types and prices: [PENDING]
+Links to Booking / Hostelworld / Airbnb: [PENDING]
 
-Pendientes técnicos para producción
+Framework decision (important)
+
+Current MVP: plain HTML / CSS / JS. DO NOT use React or Next.js.
+Reason: it's a single-page static landing. React/Next add a build
+step, dependencies and a JS bundle that are unnecessary for this case. Plain HTML
+loads faster and has no build that can break.
+Migration path IF the site grows (multi-page, large blog, stateful booking
+engine): consider Astro, not Next. Astro generates static HTML,
+ships zero JS by default, and adds targeted interactivity via "islands". Better fit
+than Next for a static content site.
+Do not migrate preemptively. Only if a real need arises.
+
+Technical pending items for production
 
 Meta tags: description, Open Graph, Twitter Card, favicon.
-Schema.org JSON-LD tipo LodgingBusiness.
-Botón reservar -> WhatsApp con mensaje pre-llenado.
-Verificar responsive en mobile.
-Optimizar imágenes (WebP, comprimidas).
-Bilingüe ES/EN (fase posterior, no en MVP inicial).
+Schema.org JSON-LD of type LodgingBusiness.
+Book button -> WhatsApp with a pre-filled message.
+Verify responsive on mobile.
+Optimize images (WebP, compressed).
+Bilingual ES/EN (later phase, not in the initial MVP).
 
-Deploy
+Hosting / Deploy architecture
 
-Repo en GitHub conectado a Cloudflare Pages.
-Al ser HTML estático puro: sin build command, output directory = raíz (/).
-Custom domain hostaledmond.com configurado en Pages.
+Repo on GitHub (public): edgarpecero/hostal-edmond.
+Cloudflare Workers connected to the repo. On each push to main, Cloudflare
+automatically redeploys with npx wrangler deploy.
+Pure static site: framework preset None, no build command,
+output directory = root (.).
+Wrangler generates wrangler.jsonc with assets.directory = "." pointing to the root.
+Workers URL: https://hostal-edmond.edgarpecero7.workers.dev
+(provisional; the final site uses the custom domain).
+STATUS: live. Domain hostaledmond.com (root) connected to the Worker as a
+Worker-type record, Proxied. SSL working (Full mode).
+Minor pending: connect/redirect www.hostaledmond.com (add as custom
+domain on the Worker or CNAME www -> hostaledmond.com, Proxied). Optional:
+Redirect Rule to send www to root.
+Custom domain hostaledmond.com to be configured on the Worker
+(Settings -> Domains & Routes).
+SSL/TLS: Full mode.
+
+Exclusion files (important)
+
+.gitignore: excludes .wrangler/ and node_modules/.
+.assetsignore: prevents Cloudflare from serving internal files to the public.
+Must exclude: .git, .git/**, .gitignore, .assetsignore, wrangler.jsonc.
+Without this, the deploy exposes the entire .git folder to the public.
