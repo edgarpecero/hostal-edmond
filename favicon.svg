@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Fondo terracota redondeado, paleta Hostal Edmond -->
+  <rect width="512" height="512" rx="96" ry="96" fill="#C05C2A"/>
+  <!-- Anillo dorado sutil -->
+  <rect x="28" y="28" width="456" height="456" rx="72" ry="72" fill="none" stroke="#D4A040" stroke-width="14" opacity="0.85"/>
+  <!-- Letra E en serif, color crema -->
+  <text x="50%" y="50%" dy="0.04em"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="320" font-weight="700"
+        fill="#F7F0E3">E</text>
+</svg>
