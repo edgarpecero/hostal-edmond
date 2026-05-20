@@ -318,6 +318,54 @@
     .info-lbl { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 600; }
     .info-val { font-size: .95rem; font-weight: 600; color: var(--text); margin-top: .2rem; }
 
+    /* ── GALLERY ── */
+    #galeria { background: var(--cream); }
+    .gallery-wrap {
+      position: relative; max-width: 1300px;
+      margin: 3rem auto 0;
+    }
+    .gallery-track {
+      display: flex; gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 1rem .5rem 1.5rem;
+      scrollbar-color: var(--terra) transparent;
+      scrollbar-width: thin;
+    }
+    .gallery-track::-webkit-scrollbar { height: 8px; }
+    .gallery-track::-webkit-scrollbar-thumb { background: var(--terra); border-radius: 4px; }
+    .gallery-track::-webkit-scrollbar-track { background: rgba(192,92,42,.1); border-radius: 4px; }
+    .gallery-item {
+      flex: 0 0 auto;
+      width: 420px; height: 300px;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      scroll-snap-align: start;
+      box-shadow: 0 4px 24px var(--shadow);
+      transition: transform .3s, box-shadow .3s;
+      background: var(--linen);
+    }
+    .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 12px 36px var(--shadow); }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .5s;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--white); border: none;
+      color: var(--terra); font-size: 1.6rem; font-weight: 700;
+      cursor: pointer; z-index: 10; line-height: 1;
+      box-shadow: 0 4px 16px var(--shadow);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, color .2s, transform .15s;
+    }
+    .gallery-nav:hover { background: var(--terra); color: #fff; transform: translateY(-50%) scale(1.08); }
+    .gallery-nav.prev { left: -1rem; }
+    .gallery-nav.next { right: -1rem; }
+
     /* ── FOOTER ── */
     footer {
       background: var(--text); color: rgba(255,255,255,.6);
@@ -350,6 +398,8 @@
       .contact-box { padding: 2.5rem 1.5rem; }
       .nav-right { gap: .5rem; }
       .lang-btn { padding: .3rem .5rem; font-size: .68rem; }
+      .gallery-item { width: 280px; height: 210px; }
+      .gallery-nav { display: none; }
     }
   </style>
 </head>
@@ -433,7 +483,7 @@
 
     <div class="room-card reveal">
       <div class="room-img">
-        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=700&q=80" alt="Dormitorio mixto 8 camas" data-i18n-alt="room1.img.alt" />
+        <img src="assets/room-1.png" alt="Dormitorio mixto 8 camas" data-i18n-alt="room1.img.alt" />
         <span class="room-tag" data-i18n="room1.tag">Más popular</span>
       </div>
       <div class="room-body">
@@ -450,7 +500,7 @@
 
     <div class="room-card reveal" style="transition-delay:.1s">
       <div class="room-img">
-        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=700&q=80" alt="Dormitorio femenino" data-i18n-alt="room2.img.alt" />
+        <img src="assets/room-2.png" alt="Dormitorio femenino" data-i18n-alt="room2.img.alt" />
         <span class="room-tag" data-i18n="room2.tag">Solo mujeres</span>
       </div>
       <div class="room-body">
@@ -466,7 +516,7 @@
 
     <div class="room-card reveal" style="transition-delay:.2s">
       <div class="room-img">
-        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Dormitorio pequeño" data-i18n-alt="room3.img.alt" />
+        <img src="assets/room-3.png" alt="Dormitorio pequeño" data-i18n-alt="room3.img.alt" />
         <span class="room-tag" data-i18n="room3.tag">Más tranquilo</span>
       </div>
       <div class="room-body">
@@ -513,26 +563,53 @@
   </div>
   <div class="areas-grid" style="margin-top:3rem">
     <div class="area-card tall reveal">
-      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Cocina compartida" data-i18n-alt="area1.img.alt" />
+      <img src="assets/pool-1.png" alt="Alberca del hostal" data-i18n-alt="area.pool.alt" />
       <div class="area-info">
-        <span class="area-name" data-i18n="area1.name">Cocina Compartida</span>
-        <p class="area-desc" data-i18n="area1.desc">Refrigerador, estufa, utensilios y todo para cocinar tu propia comida.</p>
+        <span class="area-name" data-i18n="area.pool.name">Alberca</span>
+        <p class="area-desc" data-i18n="area.pool.desc">Refréscate después de un día de playa o cenotes. Espacio al aire libre para relajarte.</p>
       </div>
     </div>
     <div class="area-card reveal" style="transition-delay:.1s">
-      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="Sala común" data-i18n-alt="area2.img.alt" />
+      <img src="assets/kitchen-1.png" alt="Cocina compartida" data-i18n-alt="area.kitchen.alt" />
       <div class="area-info">
-        <span class="area-name" data-i18n="area2.name">Sala de Estar</span>
-        <p class="area-desc" data-i18n="area2.desc">Sofás, juegos de mesa y el mejor lugar para conocer viajeros.</p>
+        <span class="area-name" data-i18n="area.kitchen.name">Cocina Compartida</span>
+        <p class="area-desc" data-i18n="area.kitchen.desc">Refrigerador, estufa, utensilios y todo para cocinar tu propia comida.</p>
       </div>
     </div>
     <div class="area-card reveal" style="transition-delay:.2s">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Patio exterior" data-i18n-alt="area3.img.alt" />
+      <img src="assets/living-room-1.png" alt="Sala común" data-i18n-alt="area.living.alt" />
       <div class="area-info">
-        <span class="area-name" data-i18n="area3.name">Patio / Área al Aire Libre</span>
-        <p class="area-desc" data-i18n="area3.desc">Disfruta el aire libre, relájate y comparte con los demás huéspedes.</p>
+        <span class="area-name" data-i18n="area.living.name">Sala de Estar</span>
+        <p class="area-desc" data-i18n="area.living.desc">Sofás, juegos de mesa y el mejor lugar para conocer viajeros.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="centered reveal">
+    <span class="section-label" data-i18n="gallery.label">Galería</span>
+    <h2 class="section-title" data-i18n="gallery.title">Conoce el <em>lugar</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub" data-i18n="gallery.sub">Un vistazo a todos los rincones que te esperan.</p>
+  </div>
+  <div class="gallery-wrap">
+    <button type="button" class="gallery-nav prev" aria-label="Anterior">‹</button>
+    <div class="gallery-track">
+      <div class="gallery-item"><img src="assets/entrance-1.png" loading="lazy" alt="Entrada" data-i18n-alt="gallery.alt.entrance" /></div>
+      <div class="gallery-item"><img src="assets/pool-1.png" loading="lazy" alt="Alberca" data-i18n-alt="gallery.alt.pool" /></div>
+      <div class="gallery-item"><img src="assets/pool-2.png" loading="lazy" alt="Alberca" data-i18n-alt="gallery.alt.pool" /></div>
+      <div class="gallery-item"><img src="assets/living-room-1.png" loading="lazy" alt="Sala" data-i18n-alt="gallery.alt.living" /></div>
+      <div class="gallery-item"><img src="assets/kitchen-1.png" loading="lazy" alt="Cocina" data-i18n-alt="gallery.alt.kitchen" /></div>
+      <div class="gallery-item"><img src="assets/bathroom-1.png" loading="lazy" alt="Baño" data-i18n-alt="gallery.alt.bathroom" /></div>
+      <div class="gallery-item"><img src="assets/room-1.png" loading="lazy" alt="Habitación" data-i18n-alt="gallery.alt.room" /></div>
+      <div class="gallery-item"><img src="assets/room-2.png" loading="lazy" alt="Habitación" data-i18n-alt="gallery.alt.room" /></div>
+      <div class="gallery-item"><img src="assets/room-3.png" loading="lazy" alt="Habitación" data-i18n-alt="gallery.alt.room" /></div>
+      <div class="gallery-item"><img src="assets/room-4.png" loading="lazy" alt="Habitación" data-i18n-alt="gallery.alt.room" /></div>
+      <div class="gallery-item"><img src="assets/room-5.png" loading="lazy" alt="Habitación" data-i18n-alt="gallery.alt.room" /></div>
+    </div>
+    <button type="button" class="gallery-nav next" aria-label="Siguiente">›</button>
   </div>
 </section>
 
@@ -660,15 +737,25 @@
       'areas.label': 'Nuestros espacios',
       'areas.title': 'Más que un lugar para <em>dormir</em>',
       'areas.sub': 'Los mejores momentos del viaje pasan aquí: entre buenas pláticas, café recién hecho y planes espontáneos.',
-      'area1.name': 'Cocina Compartida',
-      'area1.desc': 'Refrigerador, estufa, utensilios y todo para cocinar tu propia comida.',
-      'area1.img.alt': 'Cocina compartida',
-      'area2.name': 'Sala de Estar',
-      'area2.desc': 'Sofás, juegos de mesa y el mejor lugar para conocer viajeros.',
-      'area2.img.alt': 'Sala común',
-      'area3.name': 'Patio / Área al Aire Libre',
-      'area3.desc': 'Disfruta el aire libre, relájate y comparte con los demás huéspedes.',
-      'area3.img.alt': 'Patio exterior',
+      'area.pool.name': 'Alberca',
+      'area.pool.desc': 'Refréscate después de un día de playa o cenotes. Espacio al aire libre para relajarte.',
+      'area.pool.alt': 'Alberca del hostal',
+      'area.kitchen.name': 'Cocina Compartida',
+      'area.kitchen.desc': 'Refrigerador, estufa, utensilios y todo para cocinar tu propia comida.',
+      'area.kitchen.alt': 'Cocina compartida',
+      'area.living.name': 'Sala de Estar',
+      'area.living.desc': 'Sofás, juegos de mesa y el mejor lugar para conocer viajeros.',
+      'area.living.alt': 'Sala común',
+
+      'gallery.label': 'Galería',
+      'gallery.title': 'Conoce el <em>lugar</em>',
+      'gallery.sub': 'Un vistazo a todos los rincones que te esperan.',
+      'gallery.alt.entrance': 'Entrada del hostal',
+      'gallery.alt.pool': 'Alberca',
+      'gallery.alt.kitchen': 'Cocina',
+      'gallery.alt.living': 'Sala de estar',
+      'gallery.alt.bathroom': 'Baño',
+      'gallery.alt.room': 'Habitación',
 
       'contact.title': '¿Tienes preguntas?<br><em>Escríbenos</em>',
       'contact.p': 'Nuestro equipo está listo para ayudarte con reservaciones, disponibilidad, precios o cualquier duda. ¡Responderemos a la brevedad!',
@@ -748,15 +835,25 @@
       'areas.label': 'Our spaces',
       'areas.title': 'More than a place to <em>sleep</em>',
       'areas.sub': 'The best moments of the trip happen here: great chats, fresh coffee and spontaneous plans.',
-      'area1.name': 'Shared Kitchen',
-      'area1.desc': 'Fridge, stove, utensils and everything to cook your own meals.',
-      'area1.img.alt': 'Shared kitchen',
-      'area2.name': 'Living Room',
-      'area2.desc': 'Couches, board games and the best place to meet other travelers.',
-      'area2.img.alt': 'Common living room',
-      'area3.name': 'Patio / Outdoor Area',
-      'area3.desc': 'Enjoy the open air, relax and hang out with other guests.',
-      'area3.img.alt': 'Outdoor patio',
+      'area.pool.name': 'Pool',
+      'area.pool.desc': 'Cool off after a day at the beach or the cenotes. Open-air spot to chill out.',
+      'area.pool.alt': 'Hostel pool',
+      'area.kitchen.name': 'Shared Kitchen',
+      'area.kitchen.desc': 'Fridge, stove, utensils and everything to cook your own meals.',
+      'area.kitchen.alt': 'Shared kitchen',
+      'area.living.name': 'Living Room',
+      'area.living.desc': 'Couches, board games and the best place to meet other travelers.',
+      'area.living.alt': 'Common living room',
+
+      'gallery.label': 'Gallery',
+      'gallery.title': 'See the <em>place</em>',
+      'gallery.sub': 'A look at every corner waiting for you.',
+      'gallery.alt.entrance': 'Hostel entrance',
+      'gallery.alt.pool': 'Pool',
+      'gallery.alt.kitchen': 'Kitchen',
+      'gallery.alt.living': 'Living room',
+      'gallery.alt.bathroom': 'Bathroom',
+      'gallery.alt.room': 'Room',
 
       'contact.title': 'Got questions?<br><em>Write to us</em>',
       'contact.p': "Our team is ready to help with reservations, availability, pricing or anything else. We'll get back to you shortly!",
@@ -836,15 +933,25 @@
       'areas.label': 'Nos espaces',
       'areas.title': "Plus qu'un endroit où <em>dormir</em>",
       'areas.sub': "Les meilleurs moments du voyage se passent ici : bonnes discussions, café fraîchement préparé et plans spontanés.",
-      'area1.name': 'Cuisine Partagée',
-      'area1.desc': 'Réfrigérateur, cuisinière, ustensiles et tout pour cuisiner vos propres repas.',
-      'area1.img.alt': 'Cuisine partagée',
-      'area2.name': 'Salon',
-      'area2.desc': 'Canapés, jeux de société et le meilleur endroit pour rencontrer des voyageurs.',
-      'area2.img.alt': 'Salon commun',
-      'area3.name': 'Patio / Espace Extérieur',
-      'area3.desc': 'Profitez du grand air, détendez-vous et partagez avec les autres hôtes.',
-      'area3.img.alt': 'Patio extérieur',
+      'area.pool.name': 'Piscine',
+      'area.pool.desc': "Rafraîchissez-vous après une journée à la plage ou aux cénotes. Un espace en plein air pour décompresser.",
+      'area.pool.alt': "Piscine de l'auberge",
+      'area.kitchen.name': 'Cuisine Partagée',
+      'area.kitchen.desc': 'Réfrigérateur, cuisinière, ustensiles et tout pour cuisiner vos propres repas.',
+      'area.kitchen.alt': 'Cuisine partagée',
+      'area.living.name': 'Salon',
+      'area.living.desc': 'Canapés, jeux de société et le meilleur endroit pour rencontrer des voyageurs.',
+      'area.living.alt': 'Salon commun',
+
+      'gallery.label': 'Galerie',
+      'gallery.title': "Découvrez l'<em>endroit</em>",
+      'gallery.sub': 'Un aperçu de tous les recoins qui vous attendent.',
+      'gallery.alt.entrance': "Entrée de l'auberge",
+      'gallery.alt.pool': 'Piscine',
+      'gallery.alt.kitchen': 'Cuisine',
+      'gallery.alt.living': 'Salon',
+      'gallery.alt.bathroom': 'Salle de bain',
+      'gallery.alt.room': 'Chambre',
 
       'contact.title': 'Des questions ?<br><em>Écrivez-nous</em>',
       'contact.p': "Notre équipe est prête à vous aider pour les réservations, la disponibilité, les tarifs ou toute autre question. Nous vous répondrons rapidement !",
@@ -900,6 +1007,21 @@
   });
 
   initLang();
+
+  /* ── GALLERY CAROUSEL ── */
+  const galleryTrack = document.querySelector('.gallery-track');
+  const galleryPrev = document.querySelector('.gallery-nav.prev');
+  const galleryNext = document.querySelector('.gallery-nav.next');
+  if (galleryTrack && galleryPrev && galleryNext) {
+    const scrollByOne = (dir) => {
+      const item = galleryTrack.querySelector('.gallery-item');
+      if (!item) return;
+      const step = item.getBoundingClientRect().width + 16; // width + gap
+      galleryTrack.scrollBy({ left: dir * step, behavior: 'smooth' });
+    };
+    galleryPrev.addEventListener('click', () => scrollByOne(-1));
+    galleryNext.addEventListener('click', () => scrollByOne(1));
+  }
 </script>
 </body>
 </html>
