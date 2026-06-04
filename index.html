@@ -383,6 +383,9 @@
       font-size: .82rem;
     }
     footer strong { color: #fff; }
+    .footer-legal { margin-top: .8rem; font-size: .78rem; }
+    .footer-legal a { color: var(--gold); text-decoration: none; transition: color .2s; }
+    .footer-legal a:hover { color: #fff; }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
@@ -493,7 +496,7 @@
 
     <div class="room-card reveal">
       <div class="room-img">
-        <img src="assets/room-1.png" alt="Dormitorio mixto 8 camas" data-i18n-alt="room1.img.alt" />
+        <img src="assets/room-6.png" alt="Dormitorio mixto 8 camas" data-i18n-alt="room1.img.alt" />
         <span class="room-tag" data-i18n="room1.tag">Más popular</span>
       </div>
       <div class="room-body">
@@ -510,7 +513,7 @@
 
     <div class="room-card reveal" style="transition-delay:.1s">
       <div class="room-img">
-        <img src="assets/room-2.png" alt="Dormitorio femenino" data-i18n-alt="room2.img.alt" />
+        <img src="assets/room-4.png" alt="Dormitorio femenino" data-i18n-alt="room2.img.alt" />
         <span class="room-tag" data-i18n="room2.tag">Solo mujeres</span>
       </div>
       <div class="room-body">
@@ -526,7 +529,7 @@
 
     <div class="room-card reveal" style="transition-delay:.2s">
       <div class="room-img">
-        <img src="assets/room-3.png" alt="Dormitorio pequeño" data-i18n-alt="room3.img.alt" />
+        <img src="assets/room-5.png" alt="Dormitorio pequeño" data-i18n-alt="room3.img.alt" />
         <span class="room-tag" data-i18n="room3.tag">Más tranquilo</span>
       </div>
       <div class="room-body">
@@ -661,6 +664,11 @@
 <footer>
   <p><strong>Hostal Edmond</strong> &nbsp;·&nbsp; <span data-i18n="footer.tagline">Hecho con ❤️ para viajeros</span> &nbsp;·&nbsp; © 2026</p>
   <p style="margin-top:.4rem; font-size:.75rem" data-i18n="footer.images">Todas las imágenes son ilustrativas.</p>
+  <p class="footer-legal">
+    <a href="aviso-privacidad.html" data-i18n="footer.privacy">Aviso de Privacidad</a> &nbsp;·&nbsp;
+    <a href="terminos.html" data-i18n="footer.terms">Términos y Condiciones</a> &nbsp;·&nbsp;
+    <a href="politica-cancelacion.html" data-i18n="footer.cancellation">Política de Cancelación</a>
+  </p>
 </footer>
 
 <script>
@@ -778,7 +786,10 @@
       'contact.hoursVal': '8am – 10pm',
 
       'footer.tagline': 'Hecho con ❤️ para viajeros',
-      'footer.images': 'Todas las imágenes son ilustrativas.'
+      'footer.images': 'Todas las imágenes son ilustrativas.',
+      'footer.privacy': 'Aviso de Privacidad',
+      'footer.terms': 'Términos y Condiciones',
+      'footer.cancellation': 'Política de Cancelación'
     },
     en: {
       'page.title': 'Hostal Edmond — Travel. Rest. Connect.',
@@ -876,7 +887,10 @@
       'contact.hoursVal': '8am – 10pm',
 
       'footer.tagline': 'Made with ❤️ for travelers',
-      'footer.images': 'All images are illustrative.'
+      'footer.images': 'All images are illustrative.',
+      'footer.privacy': 'Privacy Notice',
+      'footer.terms': 'Terms & Conditions',
+      'footer.cancellation': 'Cancellation Policy'
     },
     fr: {
       'page.title': 'Hostal Edmond — Voyagez. Reposez-vous. Connectez-vous.',
@@ -974,7 +988,10 @@
       'contact.hoursVal': '8h – 22h',
 
       'footer.tagline': 'Fait avec ❤️ pour les voyageurs',
-      'footer.images': 'Toutes les images sont illustratives.'
+      'footer.images': 'Toutes les images sont illustratives.',
+      'footer.privacy': 'Avis de Confidentialité',
+      'footer.terms': 'Conditions Générales',
+      'footer.cancellation': "Politique d'Annulation"
     }
   };
 

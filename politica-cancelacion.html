@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#C05C2A" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <title data-i18n="cancel.page.title">Política de Cancelación — Hostal Edmond</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:    #F7F0E3;
+      --linen:    #EDE3CF;
+      --terra:    #C05C2A;
+      --terra-dk: #8C3E18;
+      --green:    #2B4A3C;
+      --green-lt: #3E6B57;
+      --gold:     #D4A040;
+      --text:     #2A2016;
+      --muted:    #7A6A55;
+      --white:    #FFFDF8;
+      --shadow:   rgba(42,32,22,.18);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--text); line-height: 1.75; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 5vw;
+      background: rgba(247,240,227,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(192,92,42,.15);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--terra); letter-spacing: .02em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--green); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .8rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--text);
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-cta {
+      background: var(--terra); color: #fff;
+      border: none; border-radius: 2rem;
+      padding: .5rem 1.4rem; font-family: 'Nunito', sans-serif;
+      font-weight: 600; font-size: .85rem; cursor: pointer;
+      letter-spacing: .04em; text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: var(--terra-dk); transform: scale(1.04); }
+
+    /* ── LANGUAGE SWITCHER ── */
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .lang-switch {
+      display: flex; gap: .2rem;
+      background: rgba(192,92,42,.08);
+      border-radius: 2rem; padding: .2rem;
+    }
+    .lang-btn {
+      background: transparent; border: none;
+      font-family: 'Nunito', sans-serif;
+      font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+      color: var(--muted); cursor: pointer;
+      padding: .35rem .65rem; border-radius: 2rem;
+      transition: background .2s, color .2s;
+    }
+    .lang-btn:hover { color: var(--terra); }
+    .lang-btn.active { background: var(--terra); color: #fff; }
+
+    /* ── PAGE LAYOUT ── */
+    .page-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 9rem 2rem 6rem;
+    }
+
+    .doc-subtitle {
+      display: block; font-size: .72rem; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--terra); font-weight: 700;
+      margin-bottom: .6rem;
+    }
+    .doc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--text); font-weight: 700;
+      line-height: 1.15; letter-spacing: .01em;
+    }
+    .doc-title em { color: var(--terra); font-style: italic; }
+    .update-date {
+      font-size: .85rem; color: var(--muted);
+      margin-top: .8rem; font-weight: 300;
+    }
+    .divider {
+      width: 48px; height: 3px;
+      background: var(--terra);
+      margin: 2.4rem 0;
+      border-radius: 2px;
+    }
+
+    /* ── LEGAL SECTIONS ── */
+    section { margin-top: 2.8rem; }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--text); letter-spacing: .01em;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid var(--linen);
+      margin-bottom: 1.2rem;
+    }
+    h2 .num {
+      color: var(--terra); font-style: italic; font-weight: 600;
+      margin-right: .5rem;
+    }
+    p { margin-bottom: 1rem; font-size: .96rem; color: var(--text); }
+    ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+    li { margin-bottom: .45rem; font-size: .96rem; }
+    strong { color: var(--text); font-weight: 600; }
+    em { color: var(--terra); font-style: italic; }
+    a { color: var(--terra); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--terra-dk); }
+
+    /* ── HIGHLIGHT BOX ── */
+    .legal-highlight {
+      background: var(--linen);
+      border-left: 4px solid var(--terra);
+      border-radius: 1rem;
+      padding: 1.4rem 1.6rem;
+      margin: 1.5rem 0 2rem;
+      font-size: .95rem;
+    }
+
+    /* ── SCENARIO CARDS ── */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 1.8rem 0 2.4rem;
+    }
+    .scenario-card {
+      background: var(--white);
+      border-radius: 1.2rem;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform .3s;
+    }
+    .scenario-card:hover { transform: translateY(-4px); }
+    .scenario-tag {
+      display: inline-block;
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .8rem; border-radius: 2rem;
+      margin-bottom: 1rem;
+    }
+    .scenario-tag.ok { background: rgba(62,107,87,.15); color: var(--green); }
+    .scenario-tag.partial { background: rgba(212,160,64,.18); color: #8a6a18; }
+    .scenario-tag.no { background: rgba(140,62,24,.12); color: var(--terra-dk); }
+    .scenario-timeframe {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 700;
+      color: var(--text); line-height: 1.1;
+      margin-bottom: .5rem;
+    }
+    .scenario-card p {
+      font-size: .88rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── LEGAL TABLE ── */
+    .legal-table {
+      width: 100%; border-collapse: collapse;
+      margin: 1.2rem 0; font-size: .92rem;
+      border-radius: .8rem; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(42,32,22,.08);
+    }
+    .legal-table th {
+      background: var(--green); color: #fff;
+      padding: .85rem 1rem; text-align: left;
+      font-weight: 600; font-size: .8rem;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .legal-table td {
+      padding: .85rem 1rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--linen);
+      vertical-align: top;
+    }
+    .legal-table tr:nth-child(even) td { background: var(--linen); }
+    .legal-table tr:last-child td { border-bottom: none; }
+
+    .legal-badge {
+      display: inline-block;
+      padding: .15rem .65rem;
+      border-radius: 2rem;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+    .legal-badge.ok { background: rgba(62,107,87,.18); color: var(--green); }
+    .legal-badge.partial { background: rgba(212,160,64,.2); color: #7a5e16; }
+    .legal-badge.no { background: rgba(140,62,24,.15); color: var(--terra-dk); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text); color: rgba(255,255,255,.6);
+      text-align: center; padding: 2rem 5vw;
+      font-size: .82rem;
+    }
+    footer strong { color: #fff; }
+    .footer-legal {
+      margin-top: .8rem; font-size: .78rem;
+    }
+    .footer-legal a {
+      color: var(--gold); text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-legal a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-right { gap: .5rem; }
+      .lang-btn { padding: .3rem .5rem; font-size: .68rem; }
+      .page-wrapper { padding: 7rem 1.2rem 4rem; }
+      .legal-table { font-size: .85rem; }
+      .legal-table th, .legal-table td { padding: .6rem .7rem; }
+      .scenario-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="nav-logo">Hostal <span>Edmond</span></a>
+  <ul class="nav-links">
+    <li><a href="/#habitaciones" data-i18n="nav.rooms">Habitaciones</a></li>
+    <li><a href="/#amenidades" data-i18n="nav.amenities">Amenidades</a></li>
+    <li><a href="/#areas" data-i18n="nav.areas">Áreas</a></li>
+    <li><a href="/#contacto" data-i18n="nav.contact">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="es">ES</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <a href="/#contacto" class="nav-cta" data-i18n="nav.book">Reservar</a>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+
+  <span class="doc-subtitle" data-i18n="legal.doc.subtitle">Documentos Legales</span>
+  <h1 class="doc-title" data-i18n="cancel.title">Política de Devolución y <em>Cancelación</em></h1>
+  <p class="update-date" data-i18n="cancel.updated">Última actualización: junio 2026</p>
+
+  <div class="divider"></div>
+
+  <div class="legal-highlight" data-i18n="cancel.intro">
+    Entendemos que los planes pueden cambiar. Esta política describe las condiciones bajo las cuales se procesarán cancelaciones y reembolsos para reservaciones realizadas directamente con <strong>Hostal Edmond</strong>. Para reservaciones a través de terceros (Booking.com, Airbnb, etc.), aplica la política de cada plataforma.
+  </div>
+
+  <section>
+    <h2><span class="num">1.</span><span data-i18n="cancel.s1.title">Resumen de Cancelaciones</span></h2>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <span class="scenario-tag ok" data-i18n="cancel.s1.c1.tag">Reembolso completo</span>
+        <div class="scenario-timeframe" data-i18n="cancel.s1.c1.time">+72 hrs</div>
+        <p data-i18n="cancel.s1.c1.desc">Cancelación con más de 72 horas antes del check-in</p>
+      </div>
+      <div class="scenario-card">
+        <span class="scenario-tag partial" data-i18n="cancel.s1.c2.tag">Reembolso parcial</span>
+        <div class="scenario-timeframe" data-i18n="cancel.s1.c2.time">24–72 hrs</div>
+        <p data-i18n="cancel.s1.c2.desc">Cancelación entre 24 y 72 horas antes del check-in (50% del total)</p>
+      </div>
+      <div class="scenario-card">
+        <span class="scenario-tag no" data-i18n="cancel.s1.c3.tag">Sin reembolso</span>
+        <div class="scenario-timeframe" data-i18n="cancel.s1.c3.time">&lt;24 hrs</div>
+        <p data-i18n="cancel.s1.c3.desc">Cancelación con menos de 24 horas o no presentación (no-show)</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2.</span><span data-i18n="cancel.s2.title">Política General de Cancelación</span></h2>
+    <table class="legal-table">
+      <thead>
+        <tr>
+          <th data-i18n="cancel.s2.th1">Tiempo antes del check-in</th>
+          <th data-i18n="cancel.s2.th2">Reembolso</th>
+          <th data-i18n="cancel.s2.th3">Cargo aplicado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-i18n="cancel.s2.r1c1">Más de 72 horas</td>
+          <td><span class="legal-badge ok" data-i18n="cancel.s2.r1c2">100%</span></td>
+          <td data-i18n="cancel.s2.r1c3">Sin cargo</td>
+        </tr>
+        <tr>
+          <td data-i18n="cancel.s2.r2c1">Entre 24 y 72 horas</td>
+          <td><span class="legal-badge partial" data-i18n="cancel.s2.r2c2">50%</span></td>
+          <td data-i18n="cancel.s2.r2c3">50% del total de la reservación</td>
+        </tr>
+        <tr>
+          <td data-i18n="cancel.s2.r3c1">Menos de 24 horas</td>
+          <td><span class="legal-badge no" data-i18n="cancel.s2.r3c2">0%</span></td>
+          <td data-i18n="cancel.s2.r3c3">100% del total de la reservación</td>
+        </tr>
+        <tr>
+          <td data-i18n="cancel.s2.r4c1">No presentación (no-show)</td>
+          <td><span class="legal-badge no" data-i18n="cancel.s2.r4c2">0%</span></td>
+          <td data-i18n="cancel.s2.r4c3">100% del total de la reservación</td>
+        </tr>
+        <tr>
+          <td data-i18n="cancel.s2.r5c1">Salida anticipada</td>
+          <td><span class="legal-badge no" data-i18n="cancel.s2.r5c2">0%</span></td>
+          <td data-i18n="cancel.s2.r5c3">Noches no utilizadas no son reembolsables</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="num">3.</span><span data-i18n="cancel.s3.title">Reservaciones No Reembolsables</span></h2>
+    <p data-i18n="cancel.s3.p1">Algunas tarifas especiales (promocionales, de temporada alta o con descuento especial) pueden ser <strong>estrictamente no reembolsables</strong>. Esto se indicará claramente al momento de la reservación. Al aceptar estas tarifas, el Huésped reconoce que no tendrá derecho a reembolso bajo ninguna circunstancia.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">4.</span><span data-i18n="cancel.s4.title">Cómo Solicitar una Cancelación</span></h2>
+    <p data-i18n="cancel.s4.p1">Para cancelar su reservación directa, siga los pasos siguientes:</p>
+    <ol>
+      <li data-i18n="cancel.s4.li1">Envíe un correo electrónico a <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> o un mensaje a nuestro WhatsApp con el asunto <em>"Cancelación de reservación — [Nombre completo] — [Fecha de llegada]"</em>.</li>
+      <li data-i18n="cancel.s4.li2">Incluya su número de confirmación de reservación.</li>
+      <li data-i18n="cancel.s4.li3">Recibirá una confirmación de cancelación en un plazo de 24 horas hábiles.</li>
+      <li data-i18n="cancel.s4.li4">El reembolso, si aplica, se procesará al mismo método de pago original en un plazo de <strong>5 a 10 días hábiles</strong>.</li>
+    </ol>
+    <p data-i18n="cancel.s4.p2">La fecha y hora de cancelación que determina la política aplicable es el momento en que el Hostal recibe la solicitud por escrito, no la fecha de envío.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">5.</span><span data-i18n="cancel.s5.title">Modificaciones de Reservación</span></h2>
+    <p data-i18n="cancel.s5.p1">Las modificaciones de fechas o tipo de habitación están sujetas a disponibilidad y pueden implicar ajustes en la tarifa. Se aceptan modificaciones sin penalización hasta <strong>48 horas antes del check-in</strong>. Las modificaciones con menos tiempo de anticipación se tratarán como cancelación y nueva reservación, aplicándose las políticas correspondientes.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">6.</span><span data-i18n="cancel.s6.title">Fuerza Mayor</span></h2>
+    <p data-i18n="cancel.s6.p1">En caso de eventos de fuerza mayor que impidan la estancia o la operación del Hostal (desastres naturales, emergencias sanitarias declaradas por autoridad competente, entre otros), el Hostal evaluará cada caso de manera individual y podrá ofrecer:</p>
+    <ul>
+      <li data-i18n="cancel.s6.li1">Reembolso total o parcial.</li>
+      <li data-i18n="cancel.s6.li2">Crédito de hospedaje para una fecha futura con validez de 12 meses.</li>
+      <li data-i18n="cancel.s6.li3">Cambio de fechas sin penalización.</li>
+    </ul>
+    <p data-i18n="cancel.s6.p2">Esta excepción aplica únicamente cuando el impedimento es ajeno a la voluntad del Huésped y debidamente justificado.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">7.</span><span data-i18n="cancel.s7.title">Cancelaciones por Parte del Hostal</span></h2>
+    <p data-i18n="cancel.s7.p1">En el improbable caso de que el Hostal deba cancelar una reservación confirmada, el Huésped recibirá:</p>
+    <ul>
+      <li data-i18n="cancel.s7.li1">Notificación por escrito a la brevedad posible.</li>
+      <li data-i18n="cancel.s7.li2">Reembolso completo del monto pagado en un plazo máximo de 5 días hábiles.</li>
+      <li data-i18n="cancel.s7.li3">Asistencia para encontrar alojamiento alternativo, en la medida de lo posible.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">8.</span><span data-i18n="cancel.s8.title">Depósitos de Garantía</span></h2>
+    <p data-i18n="cancel.s8.p1">El depósito de garantía requerido al check-in es reembolsable en los siguientes términos:</p>
+    <ul>
+      <li data-i18n="cancel.s8.li1">Se devuelve al check-out, previa inspección de la habitación.</li>
+      <li data-i18n="cancel.s8.li2">Se descuentan cargos por daños a instalaciones, equipo o mobiliario.</li>
+      <li data-i18n="cancel.s8.li3">Se descuentan cargos por servicios no pagados durante la estancia.</li>
+      <li data-i18n="cancel.s8.li4">El reembolso en efectivo es inmediato; en tarjeta puede tomar hasta 5 días hábiles.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">9.</span><span data-i18n="cancel.s9.title">Reservaciones a través de Terceros</span></h2>
+    <p data-i18n="cancel.s9.p1">Para reservaciones realizadas a través de plataformas de terceros (Booking.com, Airbnb, Expedia, etc.), la política de cancelación y reembolso aplicable es la establecida por cada plataforma al momento de la reservación. Hostal Edmond no puede gestionar reembolsos de reservaciones originadas en plataformas externas.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">10.</span><span data-i18n="cancel.s10.title">Contacto</span></h2>
+    <p data-i18n="cancel.s10.p1">Para solicitudes de cancelación o cualquier consulta sobre esta política, comuníquese con nosotros:</p>
+    <ul>
+      <li data-i18n="cancel.s10.li1">Sitio web: <a href="https://www.hostaledmond.com">www.hostaledmond.com</a></li>
+      <li data-i18n="cancel.s10.li2">Correo electrónico: <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a></li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Hostal Edmond</strong> &nbsp;·&nbsp; <span data-i18n="footer.tagline">Hecho con ❤️ para viajeros</span> &nbsp;·&nbsp; © 2026</p>
+  <p class="footer-legal">
+    <a href="aviso-privacidad.html" data-i18n="footer.privacy">Aviso de Privacidad</a> &nbsp;·&nbsp;
+    <a href="terminos.html" data-i18n="footer.terms">Términos y Condiciones</a> &nbsp;·&nbsp;
+    <a href="politica-cancelacion.html" data-i18n="footer.cancellation">Política de Cancelación</a>
+  </p>
+</footer>
+
+<script>
+  /* ── I18N ── */
+  const I18N = {
+    es: {
+      'cancel.page.title': 'Política de Cancelación — Hostal Edmond',
+      'nav.rooms': 'Habitaciones',
+      'nav.amenities': 'Amenidades',
+      'nav.areas': 'Áreas',
+      'nav.contact': 'Contacto',
+      'nav.book': 'Reservar',
+      'legal.doc.subtitle': 'Documentos Legales',
+
+      'cancel.title': 'Política de Devolución y <em>Cancelación</em>',
+      'cancel.updated': 'Última actualización: junio 2026',
+      'cancel.intro': 'Entendemos que los planes pueden cambiar. Esta política describe las condiciones bajo las cuales se procesarán cancelaciones y reembolsos para reservaciones realizadas directamente con <strong>Hostal Edmond</strong>. Para reservaciones a través de terceros (Booking.com, Airbnb, etc.), aplica la política de cada plataforma.',
+
+      'cancel.s1.title': 'Resumen de Cancelaciones',
+      'cancel.s1.c1.tag': 'Reembolso completo',
+      'cancel.s1.c1.time': '+72 hrs',
+      'cancel.s1.c1.desc': 'Cancelación con más de 72 horas antes del check-in',
+      'cancel.s1.c2.tag': 'Reembolso parcial',
+      'cancel.s1.c2.time': '24–72 hrs',
+      'cancel.s1.c2.desc': 'Cancelación entre 24 y 72 horas antes del check-in (50% del total)',
+      'cancel.s1.c3.tag': 'Sin reembolso',
+      'cancel.s1.c3.time': '&lt;24 hrs',
+      'cancel.s1.c3.desc': 'Cancelación con menos de 24 horas o no presentación (no-show)',
+
+      'cancel.s2.title': 'Política General de Cancelación',
+      'cancel.s2.th1': 'Tiempo antes del check-in',
+      'cancel.s2.th2': 'Reembolso',
+      'cancel.s2.th3': 'Cargo aplicado',
+      'cancel.s2.r1c1': 'Más de 72 horas',
+      'cancel.s2.r1c2': '100%',
+      'cancel.s2.r1c3': 'Sin cargo',
+      'cancel.s2.r2c1': 'Entre 24 y 72 horas',
+      'cancel.s2.r2c2': '50%',
+      'cancel.s2.r2c3': '50% del total de la reservación',
+      'cancel.s2.r3c1': 'Menos de 24 horas',
+      'cancel.s2.r3c2': '0%',
+      'cancel.s2.r3c3': '100% del total de la reservación',
+      'cancel.s2.r4c1': 'No presentación (no-show)',
+      'cancel.s2.r4c2': '0%',
+      'cancel.s2.r4c3': '100% del total de la reservación',
+      'cancel.s2.r5c1': 'Salida anticipada',
+      'cancel.s2.r5c2': '0%',
+      'cancel.s2.r5c3': 'Noches no utilizadas no son reembolsables',
+
+      'cancel.s3.title': 'Reservaciones No Reembolsables',
+      'cancel.s3.p1': 'Algunas tarifas especiales (promocionales, de temporada alta o con descuento especial) pueden ser <strong>estrictamente no reembolsables</strong>. Esto se indicará claramente al momento de la reservación. Al aceptar estas tarifas, el Huésped reconoce que no tendrá derecho a reembolso bajo ninguna circunstancia.',
+
+      'cancel.s4.title': 'Cómo Solicitar una Cancelación',
+      'cancel.s4.p1': 'Para cancelar su reservación directa, siga los pasos siguientes:',
+      'cancel.s4.li1': 'Envíe un correo electrónico a <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> o un mensaje a nuestro WhatsApp con el asunto <em>"Cancelación de reservación — [Nombre completo] — [Fecha de llegada]"</em>.',
+      'cancel.s4.li2': 'Incluya su número de confirmación de reservación.',
+      'cancel.s4.li3': 'Recibirá una confirmación de cancelación en un plazo de 24 horas hábiles.',
+      'cancel.s4.li4': 'El reembolso, si aplica, se procesará al mismo método de pago original en un plazo de <strong>5 a 10 días hábiles</strong>.',
+      'cancel.s4.p2': 'La fecha y hora de cancelación que determina la política aplicable es el momento en que el Hostal recibe la solicitud por escrito, no la fecha de envío.',
+
+      'cancel.s5.title': 'Modificaciones de Reservación',
+      'cancel.s5.p1': 'Las modificaciones de fechas o tipo de habitación están sujetas a disponibilidad y pueden implicar ajustes en la tarifa. Se aceptan modificaciones sin penalización hasta <strong>48 horas antes del check-in</strong>. Las modificaciones con menos tiempo de anticipación se tratarán como cancelación y nueva reservación, aplicándose las políticas correspondientes.',
+
+      'cancel.s6.title': 'Fuerza Mayor',
+      'cancel.s6.p1': 'En caso de eventos de fuerza mayor que impidan la estancia o la operación del Hostal (desastres naturales, emergencias sanitarias declaradas por autoridad competente, entre otros), el Hostal evaluará cada caso de manera individual y podrá ofrecer:',
+      'cancel.s6.li1': 'Reembolso total o parcial.',
+      'cancel.s6.li2': 'Crédito de hospedaje para una fecha futura con validez de 12 meses.',
+      'cancel.s6.li3': 'Cambio de fechas sin penalización.',
+      'cancel.s6.p2': 'Esta excepción aplica únicamente cuando el impedimento es ajeno a la voluntad del Huésped y debidamente justificado.',
+
+      'cancel.s7.title': 'Cancelaciones por Parte del Hostal',
+      'cancel.s7.p1': 'En el improbable caso de que el Hostal deba cancelar una reservación confirmada, el Huésped recibirá:',
+      'cancel.s7.li1': 'Notificación por escrito a la brevedad posible.',
+      'cancel.s7.li2': 'Reembolso completo del monto pagado en un plazo máximo de 5 días hábiles.',
+      'cancel.s7.li3': 'Asistencia para encontrar alojamiento alternativo, en la medida de lo posible.',
+
+      'cancel.s8.title': 'Depósitos de Garantía',
+      'cancel.s8.p1': 'El depósito de garantía requerido al check-in es reembolsable en los siguientes términos:',
+      'cancel.s8.li1': 'Se devuelve al check-out, previa inspección de la habitación.',
+      'cancel.s8.li2': 'Se descuentan cargos por daños a instalaciones, equipo o mobiliario.',
+      'cancel.s8.li3': 'Se descuentan cargos por servicios no pagados durante la estancia.',
+      'cancel.s8.li4': 'El reembolso en efectivo es inmediato; en tarjeta puede tomar hasta 5 días hábiles.',
+
+      'cancel.s9.title': 'Reservaciones a través de Terceros',
+      'cancel.s9.p1': 'Para reservaciones realizadas a través de plataformas de terceros (Booking.com, Airbnb, Expedia, etc.), la política de cancelación y reembolso aplicable es la establecida por cada plataforma al momento de la reservación. Hostal Edmond no puede gestionar reembolsos de reservaciones originadas en plataformas externas.',
+
+      'cancel.s10.title': 'Contacto',
+      'cancel.s10.p1': 'Para solicitudes de cancelación o cualquier consulta sobre esta política, comuníquese con nosotros:',
+      'cancel.s10.li1': 'Sitio web: <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>',
+      'cancel.s10.li2': 'Correo electrónico: <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a>',
+
+      'footer.tagline': 'Hecho con ❤️ para viajeros',
+      'footer.privacy': 'Aviso de Privacidad',
+      'footer.terms': 'Términos y Condiciones',
+      'footer.cancellation': 'Política de Cancelación'
+    },
+    en: {
+      'cancel.page.title': 'Cancellation Policy — Hostal Edmond',
+      'nav.rooms': 'Rooms',
+      'nav.amenities': 'Amenities',
+      'nav.areas': 'Spaces',
+      'nav.contact': 'Contact',
+      'nav.book': 'Book',
+      'legal.doc.subtitle': 'Legal Documents',
+
+      'cancel.title': 'Refund & <em>Cancellation</em> Policy',
+      'cancel.updated': 'Last updated: June 2026',
+      'cancel.intro': 'We understand that plans can change. This policy describes the conditions under which cancellations and refunds will be processed for reservations made directly with <strong>Hostal Edmond</strong>. For reservations through third parties (Booking.com, Airbnb, etc.), each platform\'s policy applies.',
+
+      'cancel.s1.title': 'Cancellation Summary',
+      'cancel.s1.c1.tag': 'Full refund',
+      'cancel.s1.c1.time': '+72 hrs',
+      'cancel.s1.c1.desc': 'Cancellation more than 72 hours before check-in',
+      'cancel.s1.c2.tag': 'Partial refund',
+      'cancel.s1.c2.time': '24–72 hrs',
+      'cancel.s1.c2.desc': 'Cancellation between 24 and 72 hours before check-in (50% of total)',
+      'cancel.s1.c3.tag': 'No refund',
+      'cancel.s1.c3.time': '&lt;24 hrs',
+      'cancel.s1.c3.desc': 'Cancellation with less than 24 hours or no-show',
+
+      'cancel.s2.title': 'General Cancellation Policy',
+      'cancel.s2.th1': 'Time before check-in',
+      'cancel.s2.th2': 'Refund',
+      'cancel.s2.th3': 'Charge applied',
+      'cancel.s2.r1c1': 'More than 72 hours',
+      'cancel.s2.r1c2': '100%',
+      'cancel.s2.r1c3': 'No charge',
+      'cancel.s2.r2c1': 'Between 24 and 72 hours',
+      'cancel.s2.r2c2': '50%',
+      'cancel.s2.r2c3': '50% of reservation total',
+      'cancel.s2.r3c1': 'Less than 24 hours',
+      'cancel.s2.r3c2': '0%',
+      'cancel.s2.r3c3': '100% of reservation total',
+      'cancel.s2.r4c1': 'No-show',
+      'cancel.s2.r4c2': '0%',
+      'cancel.s2.r4c3': '100% of reservation total',
+      'cancel.s2.r5c1': 'Early check-out',
+      'cancel.s2.r5c2': '0%',
+      'cancel.s2.r5c3': 'Unused nights are non-refundable',
+
+      'cancel.s3.title': 'Non-refundable Reservations',
+      'cancel.s3.p1': 'Some special rates (promotional, high season or special discount) may be <strong>strictly non-refundable</strong>. This will be clearly indicated at booking. By accepting these rates, the Guest acknowledges that no refund will be due under any circumstances.',
+
+      'cancel.s4.title': 'How to Request a Cancellation',
+      'cancel.s4.p1': 'To cancel your direct reservation, follow these steps:',
+      'cancel.s4.li1': 'Send an email to <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> or a WhatsApp message with the subject <em>"Reservation cancellation — [Full name] — [Arrival date]"</em>.',
+      'cancel.s4.li2': 'Include your reservation confirmation number.',
+      'cancel.s4.li3': 'You will receive a cancellation confirmation within 24 business hours.',
+      'cancel.s4.li4': 'The refund, if applicable, will be processed to the original payment method within <strong>5 to 10 business days</strong>.',
+      'cancel.s4.p2': 'The date and time of cancellation that determines the applicable policy is the moment the Hostel receives the written request, not the date of sending.',
+
+      'cancel.s5.title': 'Reservation Modifications',
+      'cancel.s5.p1': 'Date or room-type modifications are subject to availability and may involve rate adjustments. Modifications without penalty are accepted up to <strong>48 hours before check-in</strong>. Modifications with less notice will be treated as cancellation and new reservation, with the corresponding policies applied.',
+
+      'cancel.s6.title': 'Force Majeure',
+      'cancel.s6.p1': 'In case of force majeure events that prevent the stay or the operation of the Hostel (natural disasters, health emergencies declared by competent authority, among others), the Hostel will evaluate each case individually and may offer:',
+      'cancel.s6.li1': 'Total or partial refund.',
+      'cancel.s6.li2': 'Lodging credit for a future date valid for 12 months.',
+      'cancel.s6.li3': 'Date change without penalty.',
+      'cancel.s6.p2': 'This exception applies only when the impediment is outside the Guest\'s control and duly justified.',
+
+      'cancel.s7.title': 'Cancellations by the Hostel',
+      'cancel.s7.p1': 'In the unlikely event that the Hostel must cancel a confirmed reservation, the Guest will receive:',
+      'cancel.s7.li1': 'Written notification as soon as possible.',
+      'cancel.s7.li2': 'Full refund of the amount paid within a maximum of 5 business days.',
+      'cancel.s7.li3': 'Assistance in finding alternative accommodation, to the extent possible.',
+
+      'cancel.s8.title': 'Security Deposits',
+      'cancel.s8.p1': 'The security deposit required at check-in is refundable under the following terms:',
+      'cancel.s8.li1': 'It is returned at check-out, after room inspection.',
+      'cancel.s8.li2': 'Charges for damage to facilities, equipment or furnishings are deducted.',
+      'cancel.s8.li3': 'Charges for services not paid during the stay are deducted.',
+      'cancel.s8.li4': 'Cash refunds are immediate; card refunds may take up to 5 business days.',
+
+      'cancel.s9.title': 'Reservations through Third Parties',
+      'cancel.s9.p1': 'For reservations made through third-party platforms (Booking.com, Airbnb, Expedia, etc.), the applicable cancellation and refund policy is that established by each platform at the time of booking. Hostal Edmond cannot process refunds for reservations originated on external platforms.',
+
+      'cancel.s10.title': 'Contact',
+      'cancel.s10.p1': 'For cancellation requests or any inquiry about this policy, contact us:',
+      'cancel.s10.li1': 'Website: <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>',
+      'cancel.s10.li2': 'Email: <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a>',
+
+      'footer.tagline': 'Made with ❤️ for travelers',
+      'footer.privacy': 'Privacy Notice',
+      'footer.terms': 'Terms & Conditions',
+      'footer.cancellation': 'Cancellation Policy'
+    },
+    fr: {
+      'cancel.page.title': "Politique d'Annulation — Hostal Edmond",
+      'nav.rooms': 'Chambres',
+      'nav.amenities': 'Équipements',
+      'nav.areas': 'Espaces',
+      'nav.contact': 'Contact',
+      'nav.book': 'Réserver',
+      'legal.doc.subtitle': 'Documents Légaux',
+
+      'cancel.title': "Politique de Remboursement et d'<em>Annulation</em>",
+      'cancel.updated': 'Dernière mise à jour : juin 2026',
+      'cancel.intro': "Nous comprenons que les plans peuvent changer. Cette politique décrit les conditions dans lesquelles les annulations et remboursements seront traités pour les réservations effectuées directement auprès de <strong>Hostal Edmond</strong>. Pour les réservations via des tiers (Booking.com, Airbnb, etc.), la politique de chaque plateforme s'applique.",
+
+      'cancel.s1.title': 'Résumé des Annulations',
+      'cancel.s1.c1.tag': 'Remboursement intégral',
+      'cancel.s1.c1.time': '+72 h',
+      'cancel.s1.c1.desc': "Annulation plus de 72 heures avant l'arrivée",
+      'cancel.s1.c2.tag': 'Remboursement partiel',
+      'cancel.s1.c2.time': '24–72 h',
+      'cancel.s1.c2.desc': "Annulation entre 24 et 72 heures avant l'arrivée (50 % du total)",
+      'cancel.s1.c3.tag': 'Aucun remboursement',
+      'cancel.s1.c3.time': '&lt;24 h',
+      'cancel.s1.c3.desc': "Annulation moins de 24 heures à l'avance ou non-présentation",
+
+      'cancel.s2.title': "Politique Générale d'Annulation",
+      'cancel.s2.th1': "Délai avant l'arrivée",
+      'cancel.s2.th2': 'Remboursement',
+      'cancel.s2.th3': 'Frais appliqués',
+      'cancel.s2.r1c1': 'Plus de 72 heures',
+      'cancel.s2.r1c2': '100 %',
+      'cancel.s2.r1c3': 'Aucuns frais',
+      'cancel.s2.r2c1': 'Entre 24 et 72 heures',
+      'cancel.s2.r2c2': '50 %',
+      'cancel.s2.r2c3': '50 % du total de la réservation',
+      'cancel.s2.r3c1': 'Moins de 24 heures',
+      'cancel.s2.r3c2': '0 %',
+      'cancel.s2.r3c3': '100 % du total de la réservation',
+      'cancel.s2.r4c1': 'Non-présentation',
+      'cancel.s2.r4c2': '0 %',
+      'cancel.s2.r4c3': '100 % du total de la réservation',
+      'cancel.s2.r5c1': 'Départ anticipé',
+      'cancel.s2.r5c2': '0 %',
+      'cancel.s2.r5c3': 'Les nuits non utilisées ne sont pas remboursables',
+
+      'cancel.s3.title': 'Réservations Non Remboursables',
+      'cancel.s3.p1': "Certains tarifs spéciaux (promotionnels, haute saison ou remise spéciale) peuvent être <strong>strictement non remboursables</strong>. Cela sera clairement indiqué au moment de la réservation. En acceptant ces tarifs, l'Hôte reconnaît qu'il n'aura droit à aucun remboursement, quelles que soient les circonstances.",
+
+      'cancel.s4.title': 'Comment Demander une Annulation',
+      'cancel.s4.p1': 'Pour annuler votre réservation directe, suivez les étapes suivantes :',
+      'cancel.s4.li1': "Envoyez un email à <a href=\"mailto:Hostaledmond@gmail.com\">Hostaledmond@gmail.com</a> ou un message WhatsApp avec l'objet <em>\"Annulation de réservation — [Nom complet] — [Date d'arrivée]\"</em>.",
+      'cancel.s4.li2': 'Incluez votre numéro de confirmation de réservation.',
+      'cancel.s4.li3': "Vous recevrez une confirmation d'annulation dans un délai de 24 heures ouvrées.",
+      'cancel.s4.li4': "Le remboursement, s'il y a lieu, sera traité sur le même moyen de paiement d'origine dans un délai de <strong>5 à 10 jours ouvrés</strong>.",
+      'cancel.s4.p2': "La date et l'heure d'annulation qui déterminent la politique applicable correspondent au moment où l'Auberge reçoit la demande écrite, et non à la date d'envoi.",
+
+      'cancel.s5.title': 'Modifications de Réservation',
+      'cancel.s5.p1': "Les modifications de dates ou de type de chambre sont soumises à disponibilité et peuvent impliquer des ajustements tarifaires. Les modifications sans pénalité sont acceptées jusqu'à <strong>48 heures avant l'arrivée</strong>. Les modifications avec moins de préavis seront traitées comme une annulation et une nouvelle réservation, avec les politiques correspondantes appliquées.",
+
+      'cancel.s6.title': 'Force Majeure',
+      'cancel.s6.p1': "En cas d'événements de force majeure empêchant le séjour ou l'exploitation de l'Auberge (catastrophes naturelles, urgences sanitaires déclarées par l'autorité compétente, entre autres), l'Auberge évaluera chaque cas individuellement et pourra proposer :",
+      'cancel.s6.li1': 'Remboursement total ou partiel.',
+      'cancel.s6.li2': "Avoir d'hébergement pour une date future, valable 12 mois.",
+      'cancel.s6.li3': 'Changement de dates sans pénalité.',
+      'cancel.s6.p2': "Cette exception s'applique uniquement lorsque l'empêchement est indépendant de la volonté de l'Hôte et dûment justifié.",
+
+      'cancel.s7.title': "Annulations de la part de l'Auberge",
+      'cancel.s7.p1': "Dans le cas peu probable où l'Auberge devrait annuler une réservation confirmée, l'Hôte recevra :",
+      'cancel.s7.li1': 'Notification écrite dans les plus brefs délais.',
+      'cancel.s7.li2': "Remboursement intégral du montant payé dans un délai maximum de 5 jours ouvrés.",
+      'cancel.s7.li3': 'Assistance pour trouver un hébergement alternatif, dans la mesure du possible.',
+
+      'cancel.s8.title': 'Cautions',
+      'cancel.s8.p1': "La caution requise à l'arrivée est remboursable dans les conditions suivantes :",
+      'cancel.s8.li1': 'Elle est restituée au départ, après inspection de la chambre.',
+      'cancel.s8.li2': 'Des frais pour dommages aux installations, équipements ou mobilier sont déduits.',
+      'cancel.s8.li3': 'Des frais pour services non payés pendant le séjour sont déduits.',
+      'cancel.s8.li4': "Les remboursements en espèces sont immédiats ; sur carte, ils peuvent prendre jusqu'à 5 jours ouvrés.",
+
+      'cancel.s9.title': 'Réservations via des Tiers',
+      'cancel.s9.p1': "Pour les réservations effectuées via des plateformes tierces (Booking.com, Airbnb, Expedia, etc.), la politique d'annulation et de remboursement applicable est celle établie par chaque plateforme au moment de la réservation. Hostal Edmond ne peut pas gérer les remboursements de réservations provenant de plateformes externes.",
+
+      'cancel.s10.title': 'Contact',
+      'cancel.s10.p1': "Pour les demandes d'annulation ou toute question sur cette politique, contactez-nous :",
+      'cancel.s10.li1': 'Site web : <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>',
+      'cancel.s10.li2': 'Email : <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a>',
+
+      'footer.tagline': 'Fait avec ❤️ pour les voyageurs',
+      'footer.privacy': 'Avis de Confidentialité',
+      'footer.terms': 'Conditions Générales',
+      'footer.cancellation': "Politique d'Annulation"
+    }
+  };
+
+  const LANG_KEY = 'hostal_edmond_lang';
+  const SUPPORTED = ['es', 'en', 'fr'];
+
+  function applyLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = 'es';
+    const dict = I18N[lang];
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = dict[el.dataset.i18n];
+      if (v != null) el.innerHTML = v;
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+      b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  }
+
+  function initLang() {
+    let saved = null;
+    try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+    const browser = (navigator.language || 'es').slice(0, 2).toLowerCase();
+    const initial = saved || (SUPPORTED.includes(browser) ? browser : 'es');
+    applyLang(initial);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+
+  initLang();
+</script>
+</body>
+</html>
