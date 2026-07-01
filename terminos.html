@@ -332,7 +332,7 @@
     <p data-i18n="terms.s10.p1">Para dudas o aclaraciones sobre estos términos, contáctenos a través de:</p>
     <ul>
       <li data-i18n="terms.s10.li1">Sitio web: <a href="https://www.hostaledmond.com">www.hostaledmond.com</a></li>
-      <li data-i18n="terms.s10.li2">Correo electrónico: <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a></li>
+      <li data-i18n="terms.s10.li2">Correo electrónico: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li>
     </ul>
   </section>
 
@@ -348,6 +348,7 @@
   </p>
 </footer>
 
+<script src="contact.js"></script>
 <script>
   /* ── I18N ── */
   const I18N = {
@@ -424,7 +425,7 @@
       'terms.s10.title': 'Contacto',
       'terms.s10.p1': 'Para dudas o aclaraciones sobre estos términos, contáctenos a través de:',
       'terms.s10.li1': 'Sitio web: <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>',
-      'terms.s10.li2': 'Correo electrónico: <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a>',
+      'terms.s10.li2': 'Correo electrónico: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>',
 
       'footer.tagline': 'Hecho con ❤️ para viajeros',
       'footer.privacy': 'Aviso de Privacidad',
@@ -504,7 +505,7 @@
       'terms.s10.title': 'Contact',
       'terms.s10.p1': 'For questions or clarifications about these terms, contact us through:',
       'terms.s10.li1': 'Website: <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>',
-      'terms.s10.li2': 'Email: <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a>',
+      'terms.s10.li2': 'Email: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>',
 
       'footer.tagline': 'Made with ❤️ for travelers',
       'footer.privacy': 'Privacy Notice',
@@ -584,7 +585,7 @@
       'terms.s10.title': 'Contact',
       'terms.s10.p1': 'Pour toute question ou clarification sur ces conditions, contactez-nous via :',
       'terms.s10.li1': 'Site web : <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>',
-      'terms.s10.li2': 'Email : <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a>',
+      'terms.s10.li2': 'Email : <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>',
 
       'footer.tagline': 'Fait avec ❤️ pour les voyageurs',
       'footer.privacy': 'Avis de Confidentialité',
@@ -603,7 +604,7 @@
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const v = dict[el.dataset.i18n];
-      if (v != null) el.innerHTML = v;
+      if (v != null) el.innerHTML = window.HOSTAL_CONTACT.applyPlaceholders(v);
     });
 
     document.querySelectorAll('.lang-btn').forEach(b => {

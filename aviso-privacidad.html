@@ -209,7 +209,7 @@
 
   <section>
     <h2><span class="num">I.</span><span data-i18n="privacy.s1.title">Responsable del Tratamiento</span></h2>
-    <p data-i18n="privacy.s1.p1"><strong>Hostal Edmond</strong> (en adelante "el Hostal"), con operación en Cancún, Quintana Roo, México, es el responsable del tratamiento de sus datos personales. Puede contactarnos en <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> o a través de nuestro sitio web <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>.</p>
+    <p data-i18n="privacy.s1.p1"><strong>Hostal Edmond</strong> (en adelante "el Hostal"), con operación en Cancún, Quintana Roo, México, es el responsable del tratamiento de sus datos personales. Puede contactarnos en <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> o a través de nuestro sitio web <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>.</p>
   </section>
 
   <section>
@@ -256,7 +256,7 @@
 
   <section>
     <h2><span class="num">V.</span><span data-i18n="privacy.s5.title">Derechos ARCO</span></h2>
-    <p data-i18n="privacy.s5.p1">Usted tiene derecho a <strong>Acceder, Rectificar, Cancelar u Oponerse</strong> al tratamiento de sus datos personales (derechos ARCO). Para ejercerlos, envíe una solicitud a <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> con los siguientes datos:</p>
+    <p data-i18n="privacy.s5.p1">Usted tiene derecho a <strong>Acceder, Rectificar, Cancelar u Oponerse</strong> al tratamiento de sus datos personales (derechos ARCO). Para ejercerlos, envíe una solicitud a <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> con los siguientes datos:</p>
     <ul>
       <li data-i18n="privacy.s5.li1">Nombre completo e identificación oficial.</li>
       <li data-i18n="privacy.s5.li2">Descripción clara del derecho que desea ejercer.</li>
@@ -285,7 +285,7 @@
     <p data-i18n="privacy.s9.p1">Si tiene preguntas sobre este aviso o el tratamiento de sus datos personales, contáctenos a través de:</p>
     <ul>
       <li data-i18n="privacy.s9.li1">Sitio web: <a href="https://www.hostaledmond.com">www.hostaledmond.com</a></li>
-      <li data-i18n="privacy.s9.li2">Correo electrónico: <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a></li>
+      <li data-i18n="privacy.s9.li2">Correo electrónico: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li>
     </ul>
   </section>
 
@@ -301,6 +301,7 @@
   </p>
 </footer>
 
+<script src="contact.js"></script>
 <script>
   /* ── I18N ── */
   const I18N = {
@@ -318,7 +319,7 @@
       'privacy.intro': 'En <strong>Hostal Edmond</strong> nos comprometemos a proteger la privacidad de nuestros huéspedes y usuarios. Este aviso describe cómo recopilamos, usamos y protegemos su información personal de conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) y demás normativa aplicable en México.',
 
       'privacy.s1.title': 'Responsable del Tratamiento',
-      'privacy.s1.p1': '<strong>Hostal Edmond</strong> (en adelante "el Hostal"), con operación en Cancún, Quintana Roo, México, es el responsable del tratamiento de sus datos personales. Puede contactarnos en <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> o a través de nuestro sitio web <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>.',
+      'privacy.s1.p1': '<strong>Hostal Edmond</strong> (en adelante "el Hostal"), con operación en Cancún, Quintana Roo, México, es el responsable del tratamiento de sus datos personales. Puede contactarnos en <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> o a través de nuestro sitio web <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>.',
 
       'privacy.s2.title': 'Datos Personales que Recopilamos',
       'privacy.s2.p1': 'Para llevar a cabo las finalidades descritas en este aviso, podemos recabar las siguientes categorías de datos personales:',
@@ -349,7 +350,7 @@
       'privacy.s4.p2': 'No vendemos ni cedemos sus datos personales a terceros con fines comerciales propios.',
 
       'privacy.s5.title': 'Derechos ARCO',
-      'privacy.s5.p1': 'Usted tiene derecho a <strong>Acceder, Rectificar, Cancelar u Oponerse</strong> al tratamiento de sus datos personales (derechos ARCO). Para ejercerlos, envíe una solicitud a <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> con los siguientes datos:',
+      'privacy.s5.p1': 'Usted tiene derecho a <strong>Acceder, Rectificar, Cancelar u Oponerse</strong> al tratamiento de sus datos personales (derechos ARCO). Para ejercerlos, envíe una solicitud a <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> con los siguientes datos:',
       'privacy.s5.li1': 'Nombre completo e identificación oficial.',
       'privacy.s5.li2': 'Descripción clara del derecho que desea ejercer.',
       'privacy.s5.li3': 'Domicilio o medio de contacto para recibir la respuesta.',
@@ -367,7 +368,7 @@
       'privacy.s9.title': 'Contacto',
       'privacy.s9.p1': 'Si tiene preguntas sobre este aviso o el tratamiento de sus datos personales, contáctenos a través de:',
       'privacy.s9.li1': 'Sitio web: <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>',
-      'privacy.s9.li2': 'Correo electrónico: <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a>',
+      'privacy.s9.li2': 'Correo electrónico: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>',
 
       'footer.tagline': 'Hecho con ❤️ para viajeros',
       'footer.privacy': 'Aviso de Privacidad',
@@ -388,7 +389,7 @@
       'privacy.intro': 'At <strong>Hostal Edmond</strong> we are committed to protecting the privacy of our guests and users. This notice describes how we collect, use and protect your personal information in accordance with Mexico\'s Federal Law for the Protection of Personal Data Held by Private Parties (LFPDPPP) and other applicable regulations.',
 
       'privacy.s1.title': 'Data Controller',
-      'privacy.s1.p1': '<strong>Hostal Edmond</strong> (hereinafter "the Hostel"), operating in Cancún, Quintana Roo, Mexico, is the controller responsible for the processing of your personal data. You can contact us at <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> or through our website <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>.',
+      'privacy.s1.p1': '<strong>Hostal Edmond</strong> (hereinafter "the Hostel"), operating in Cancún, Quintana Roo, Mexico, is the controller responsible for the processing of your personal data. You can contact us at <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> or through our website <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>.',
 
       'privacy.s2.title': 'Personal Data We Collect',
       'privacy.s2.p1': 'To carry out the purposes described in this notice, we may collect the following categories of personal data:',
@@ -419,7 +420,7 @@
       'privacy.s4.p2': 'We do not sell or transfer your personal data to third parties for their own commercial purposes.',
 
       'privacy.s5.title': 'ARCO Rights',
-      'privacy.s5.p1': 'You have the right to <strong>Access, Rectify, Cancel or Object</strong> to the processing of your personal data (ARCO rights). To exercise them, send a request to <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> with the following information:',
+      'privacy.s5.p1': 'You have the right to <strong>Access, Rectify, Cancel or Object</strong> to the processing of your personal data (ARCO rights). To exercise them, send a request to <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> with the following information:',
       'privacy.s5.li1': 'Full name and official ID.',
       'privacy.s5.li2': 'Clear description of the right you wish to exercise.',
       'privacy.s5.li3': 'Address or contact method to receive the response.',
@@ -437,7 +438,7 @@
       'privacy.s9.title': 'Contact',
       'privacy.s9.p1': 'If you have questions about this notice or the processing of your personal data, contact us via:',
       'privacy.s9.li1': 'Website: <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>',
-      'privacy.s9.li2': 'Email: <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a>',
+      'privacy.s9.li2': 'Email: <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>',
 
       'footer.tagline': 'Made with ❤️ for travelers',
       'footer.privacy': 'Privacy Notice',
@@ -458,7 +459,7 @@
       'privacy.intro': "Chez <strong>Hostal Edmond</strong>, nous nous engageons à protéger la vie privée de nos hôtes et utilisateurs. Cet avis décrit comment nous recueillons, utilisons et protégeons vos informations personnelles conformément à la Loi Fédérale de Protection des Données Personnelles en Possession des Particuliers (LFPDPPP) du Mexique et aux autres réglementations applicables.",
 
       'privacy.s1.title': 'Responsable du Traitement',
-      'privacy.s1.p1': '<strong>Hostal Edmond</strong> (ci-après "l\'Auberge"), opérant à Cancún, Quintana Roo, Mexique, est le responsable du traitement de vos données personnelles. Vous pouvez nous contacter à <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> ou via notre site web <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>.',
+      'privacy.s1.p1': '<strong>Hostal Edmond</strong> (ci-après "l\'Auberge"), opérant à Cancún, Quintana Roo, Mexique, est le responsable du traitement de vos données personnelles. Vous pouvez nous contacter à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> ou via notre site web <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>.',
 
       'privacy.s2.title': 'Données Personnelles Recueillies',
       'privacy.s2.p1': 'Pour mener à bien les finalités décrites dans cet avis, nous pouvons recueillir les catégories suivantes de données personnelles :',
@@ -489,7 +490,7 @@
       'privacy.s4.p2': 'Nous ne vendons ni ne cédons vos données personnelles à des tiers à des fins commerciales propres.',
 
       'privacy.s5.title': 'Droits ARCO',
-      'privacy.s5.p1': 'Vous avez le droit d\'<strong>Accéder, Rectifier, Annuler ou vous Opposer</strong> au traitement de vos données personnelles (droits ARCO). Pour les exercer, envoyez une demande à <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a> avec les informations suivantes :',
+      'privacy.s5.p1': 'Vous avez le droit d\'<strong>Accéder, Rectifier, Annuler ou vous Opposer</strong> au traitement de vos données personnelles (droits ARCO). Pour les exercer, envoyez une demande à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a> avec les informations suivantes :',
       'privacy.s5.li1': "Nom complet et pièce d'identité officielle.",
       'privacy.s5.li2': 'Description claire du droit que vous souhaitez exercer.',
       'privacy.s5.li3': 'Adresse ou moyen de contact pour recevoir la réponse.',
@@ -507,7 +508,7 @@
       'privacy.s9.title': 'Contact',
       'privacy.s9.p1': 'Si vous avez des questions sur cet avis ou le traitement de vos données personnelles, contactez-nous via :',
       'privacy.s9.li1': 'Site web : <a href="https://www.hostaledmond.com">www.hostaledmond.com</a>',
-      'privacy.s9.li2': 'Email : <a href="mailto:Hostaledmond@gmail.com">Hostaledmond@gmail.com</a>',
+      'privacy.s9.li2': 'Email : <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>',
 
       'footer.tagline': 'Fait avec ❤️ pour les voyageurs',
       'footer.privacy': 'Avis de Confidentialité',
@@ -526,7 +527,7 @@
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const v = dict[el.dataset.i18n];
-      if (v != null) el.innerHTML = v;
+      if (v != null) el.innerHTML = window.HOSTAL_CONTACT.applyPlaceholders(v);
     });
 
     document.querySelectorAll('.lang-btn').forEach(b => {
